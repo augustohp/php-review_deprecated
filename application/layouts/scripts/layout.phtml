@@ -1,0 +1,19 @@
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Revista PHP : A sua nova revista de PHP : </title>
+  <?php echo $this->headLink()->appendStylesheet('/css/global.css') ?>
+</head>
+    <body>
+        <div class="titulo">Revista PHP</div>
+        <div class="conteudo">
+            <form method="post" action="">
+                Login: <input type="text" size="10" name="login"/>
+                Senha: <input type="password" size="10" name="senha" />
+                <input type="submit" value="Ok" />
+            </form>
+        </div><br/><br />
+<?php echo $this->layout()->content; ?>
+    </body>
+</html>
