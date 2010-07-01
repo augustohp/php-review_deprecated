@@ -11,7 +11,8 @@
             <form method="post" action="">
                 Login: <input type="text" size="10" name="login"/>
                 Senha: <input type="password" size="10" name="senha" />
-                <input type="submit" value="Ok" />
+                <input type="submit" value="Ok" /><br>
+                <a href="<?= $this->url(array("controller"=>"usuario","action"=>"novo"),"default",true) ?>">Cadastre-se</a>
             </form>
         </div><br/><br />
 <?php echo $this->layout()->content; ?>
