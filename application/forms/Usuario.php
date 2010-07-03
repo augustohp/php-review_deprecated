@@ -13,15 +13,15 @@ class Application_Form_Usuario extends Zend_Form
             'label' => "Nome:",
             'required'=> true,
             'filters' => array('StringTrim'),
-            'validators' => array('validator'=>'StringLength','options'=> array(0,100) )
+            'validators' => array(array('stringLength','options'=> array(0,100)))
         ));
 
         // Adicionando o E-mail que será a chave para se logar no site
         $this->addElement("text","email",array(
             'label' => 'E-mail:',
             'required' => true,
-            'filters' => 'StringTrim',
-            'validators' => array('EmailAddress')
+            'filters' => array('StringTrim'),
+            'validators' => array('EmailAddress'),
         ));
 
         // adicionando Endereço
@@ -35,33 +35,57 @@ class Application_Form_Usuario extends Zend_Form
         $this->addElement("text","compl",array(
             'label'  => "Complemento:",
             'required' => false,
-            'filters' => 'StringTrim'
+            'filters' => array('StringTrim')
         ));
 
         // Adicionando o campo de CEP
         $this->addElement("text","cep",array(
             'label'  => "CEP:",
             'required' => true,
-            'filters' => 'StringTrim',
-            'validators' => array(
-                'alnum', array('regexp',false,'[0-9]{5}-[0-9]{3}')
+            'filters' => array('StringTrim'),
+            'validators' => array('alnum')
             )
-        ));
+        );
 
         // Adicionando o campo senha e confirmação de senha
         $this->addElement("password","senha",array(
             'label' => 'Senha:',
             'required' => true,
-            'validators' => array('StringLength','options' => array(6))
+            'validators' => array(
+                array('StringLength','options' => array(6)))
         ));
 
         $this->addElement("password","conf_senha",array(
-            'label' => 'Senha:',
+            'label' => 'Confirmar a Senha:',
             'required' => true,
-            'validators' => array('StringLength','options' => array(6))
+            'validators' => array(array('StringLength','options' => array(6)))
         ));
 
-        
+
+        // Adicionando captcha
+
+        $this->addElement('captcha','captcha',array(
+            'label' => 'Transcreva o texto abaixo.',
+            'required' => true,
+            'captcha' => array(
+                'captcha'=> 'Image',
+                'expiration' => 600,
+                'font' => "/usr/share/fonts/truetype/thai/Garuda.ttf",
+                'fontSize' => '30pt',
+                'height' => 100,
+                'width'  => 300,
+                'imageDir' => '/var/www/revista/public/images/captcha/'
+            )
+        ));
+
+        $this->addElement('hash', 'csrf', array(
+            'ignore' => true,
+        ));
+
+        $this->addElement('submit','submit',array(
+            'ignore' => true,
+            'label'  => 'Enviar'
+        ));
 
     }
 
