@@ -23,16 +23,31 @@ class Application_Form_Usuario extends Zend_Form
             'filters' => array('StringTrim'),
             'validators' => array('EmailAddress'),
         ));
-
+        
+        $this->addElement("radio","sexo",array(
+            'label' => "Sexo:",
+            'required' => true,
+            "multiOptions" => array(
+                "m" => "Masculino",
+                "f" => "Feminino"
+            )
+        ));
+        
         // adicionando Endereço
         $this->addElement("text","endereco",array(
             'label' => "Endereço:",
             'required' => false,
             'filters' => array('StringTrim','StringToLower')
         ));
+        // Adicionando número
+        $this->addElement("text","numero",array(
+            'label'  => "Número:",
+            'required' => false,
+            'filters' => array('StringTrim')
+        ));
 
         // adicionando Complemento
-        $this->addElement("text","compl",array(
+        $this->addElement("text","complEndereco",array(
             'label'  => "Complemento:",
             'required' => false,
             'filters' => array('StringTrim')
@@ -46,6 +61,24 @@ class Application_Form_Usuario extends Zend_Form
             'validators' => array('alnum')
             )
         );
+
+        $this->addElement("text","bairro",array(
+            'label'  => "Bairro:",
+            'required' => false,
+            'filters' => array('StringTrim')
+        ));
+
+        $this->addElement("text","cidade",array(
+            'label'  => "Cidade:",
+            'required' => false,
+            'filters' => array('StringTrim')
+        ));
+
+        $this->addElement("text","estado",array(
+            'label'  => "Estado:",
+            'required' => false,
+            'filters' => array('StringTrim')
+        ));
 
         // Adicionando o campo senha e confirmação de senha
         $this->addElement("password","senha",array(
@@ -61,6 +94,47 @@ class Application_Form_Usuario extends Zend_Form
             'validators' => array(array('StringLength','options' => array(6)))
         ));
 
+        // Adicionando Escolaridade
+        // TODO: Colocar a escolaridade para buscar do cadastro de escolaridade.
+        $this->addElement("select",'escolaridade',array(
+            'label'=> "Escolaridade:",
+            'required' => true,
+            "multiOptions"=> array(
+                "0" => "Fundamental",
+                "1" => "Ensino Médio"
+            )
+        ));
+
+        // Adicionando Faixa salarial.
+        // TODO: Colocar a escolaridade para buscar do cadastro de Faixas salariais.
+        $this->addElement("select",'faixaSalarial',array(
+            'label'=> "Faixa Salarial:",
+            'required' => true,
+            "multiOptions"=> array(
+                "0" => "de R$0,00 a R$ 500,00",
+                "1" => "mais de R$500,00"
+            )
+        ));
+
+        // Adicionando Nível de cargo
+        // TODO: Colocar a escolaridade para buscar do cadastro de Nível de cargo.
+        $this->addElement("select",'cargo',array(
+            'label'=> "Nível do Cargo:",
+            'required' => true,
+            "multiOptions"=> array(
+                "0" => "Estagiário",
+                "1" => "Free lancer"
+            )
+        ));
+        
+        // Adicionando Nível de cargo
+        // TODO: Colocar a escolaridade para buscar do cadastro de Nível de cargo.
+        $this->addElement("text",'comoConheceu',array(
+            'label'=> "Como conheceu o nosso site:",
+            'required' => true,
+            'size' => 40,
+            'filters' => array('StringTrim')
+        ));
 
         // Adicionando captcha
 
@@ -80,6 +154,10 @@ class Application_Form_Usuario extends Zend_Form
 
         $this->addElement('hash', 'csrf', array(
             'ignore' => true,
+        ));
+
+        $this->addElement('hidden','grupo',array(
+            'value'=>'1'
         ));
 
         $this->addElement('submit','submit',array(
