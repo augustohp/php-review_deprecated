@@ -24,9 +24,12 @@
       <modelsDirectory>
         <dbTableDirectory>
           <dbTableFile dbTableName="Usuario"/>
+          <dbTableFile dbTableName="Cargos"/>
         </dbTableDirectory>
         <modelFile modelName="UsuarioMapper"/>
         <modelFile modelName="Usuario"/>
+        <modelFile modelName="Cargos"/>
+        <modelFile modelName="CargosMapper"/>
       </modelsDirectory>
       <modulesDirectory>
         <moduleDirectory moduleName="admin">
