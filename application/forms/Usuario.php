@@ -117,14 +117,16 @@ class Application_Form_Usuario extends Zend_Form
         ));
 
         // Adicionando Nível de cargo
-        // TODO: Colocar a escolaridade para buscar do cadastro de Nível de cargo.
+        // criando a instancia dos cargos
+        $cargo = new Application_Model_Cargos();
+        $itens = $cargo->getCargos();
+        array_unshift($itens, "- Selecione");
+
+
         $this->addElement("select",'cargo',array(
             'label'=> "Nível do Cargo:",
             'required' => true,
-            "multiOptions"=> array(
-                "0" => "Estagiário",
-                "1" => "Free lancer"
-            )
+            "multiOptions"=> $itens
         ));
         
         // Adicionando Nível de cargo

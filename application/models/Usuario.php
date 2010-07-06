@@ -245,7 +245,8 @@ class Application_Model_Usuario
     }
 
     public function setCargo($nivel){
-        $this->_nivel_cargo = (int)$nivel;
+        $this->_nivel_cargo = new Application_Model_Cargos();
+        $this->_nivel_cargo->setId($nivel);
         return $this;
     }
 

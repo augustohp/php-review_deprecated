@@ -72,7 +72,7 @@ class Application_Model_UsuarioMapper
        if (null === ($id = $usuario->getId())){
            $this->getDbTable()->insert($data);
        }else{
-           $this->getDbTable()->update($data, array('id = ?',$id));
+           $this->getDbTable()->update($data, array('id_enquete = ?',$id));
        }
    }
 
@@ -92,7 +92,7 @@ class Application_Model_UsuarioMapper
        $usuarios = array();
        foreach($resultado as $item){
            $usuario = new Application_Model_Usuario();
-
+           $usuario->setId($item->id_usuario);
            $usuarios[] = $usuario;
        }
 
