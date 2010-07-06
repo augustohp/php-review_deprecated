@@ -21,10 +21,13 @@ class UsuarioController extends Zend_Controller_Action
         
         if ($this->getRequest()->isPost()){
             if ($form->isValid($request->getPost())){
-                $usuario = new Application_Model_Usuario($form->getValues());
-                $usuarioM = new Application_Model_UsuarioMapper();
-                $usuarioM->save($usuario);
-                return $this->_helper->redirector('index');
+                $resultado = $form->getValues();
+                if ($resultado["senha"] == $resultado["conf_senha"]){
+                    $usuario = new Application_Model_Usuario($resultado);
+                    $usuarioM = new Application_Model_UsuarioMapper();
+                    $usuarioM->save($usuario);
+                    return $this->_helper->redirector('index');
+                }
             }
         }
 
