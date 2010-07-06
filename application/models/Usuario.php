@@ -286,7 +286,17 @@ class Application_Model_Usuario
     }
 
     public function setSenha($senha){
-        $this->_senha = $senha;
-    }
-}
+        if (strpos($senha, 'BASH!') === false){
+           $this->_senha = 'BASH!'.sha1($senha);
+        }else{
+            $this->_senha = $senha;
+        }
 
+        return $this;
+    }
+
+    public function getSenha(){
+        return $this->_senha;
+    }
+
+}
