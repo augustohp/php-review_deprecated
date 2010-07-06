@@ -244,8 +244,17 @@ class Application_Model_Usuario
         return $this;
     }
 
-    public function setComoConheceu(string $opniao){
-        $this->_como_conheceu = $opcao;
+    public function setCargo($nivel){
+        $this->_nivel_cargo = (int)$nivel;
+        return $this;
+    }
+
+    public function getCargo(){
+        return $this->_nivel_cargo;
+    }
+
+    public function setComoConheceu($opniao){
+        $this->_como_conheceu = (string)$opcao;
         return $this;
     }
 
