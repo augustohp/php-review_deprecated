@@ -6,7 +6,13 @@ class Application_Model_DbTable_Cargos extends Zend_Db_Table_Abstract
     protected $_name = 'cargos';
     protected $_primary = 'id_nivel_cargo';
     protected $_sequence = true;
-    protected $_dependentTables = array('Usuarios');
+    protected $_referenceMap = array(
+        'Usuario' => array(
+            'Columns' => array('id_nivel_cargo'), // coluna da tabela de cargos
+            'refTableClass'=> 'Application_Model_DbTable_Usuario',
+            'refColumns' => array('id_nivel_cargo') // coluna da tabela de usuario
+        )
+    );
 
 }
 
