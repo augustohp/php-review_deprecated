@@ -1,7 +1,8 @@
 <?php
 
-class Application_Model_CargosMapper
+class Application_Model_EscolaridadeMapper
 {
+
     protected $_dbTable;
 
     public function setDbTable($dbTable){
@@ -21,26 +22,25 @@ class Application_Model_CargosMapper
    public function getDbTable(){
        // caso não exista uma instância da classe a mesma é criada.
        if (null === $this->_dbTable){
-           $this->setDbTable('Application_Model_DbTable_Cargos');
+           $this->setDbTable('Application_Model_DbTable_Escolaridade');
        }
 
        return $this->_dbTable;
    }
 
-   public function save(Application_Model_Cargos $cargo){
+   public function save(Application_Model_Escolaridade $esc){
        $arr = array(
-           'ds_cargo' => $cargo->getCargo(),
-           'in_disponivel' => $cargo->getDisponivel()
+           "ds_escolaridade" => $esc->getEscolaridade(),
+           "in_disponivel"   => $esc->getDisponivel()
        );
-
-       if(null === ($id = $cargo->getId())){
+       
+       if (null === ($id = $esc->getId())){
            $this->getDbTable()->insert($arr);
        }else{
-           $this->getDbTable()->update($arr,array('id_nivel_cargo = ?',$id));
+           $this->getDbTable()->update($arr,array("id_escolaridade = ?",$id));
        }
-
    }
-
+   
    public function find($id){
        $resultado = $this->getDbTable()->find($id);
        if ($resultado->count() == 0){
@@ -51,20 +51,19 @@ class Application_Model_CargosMapper
 
    public function fetchAll(array $where = null){
        $resultado = $this->getDbTable()->fetchAll($where);
-       if ($resultado->count() == 0){
+
+       if($resultado->count() == 0){
            return;
        }
 
-       $cargos = array();
-       foreach($resultado as $item){
-           $cargo = new Application_Model_Cargos();
-           $cargo->setId($item->id_nivel_cargo);
-           $cargos[] = $cargo;
+       $itens = array();
+       foreach($resultado as $res){
+           $escolaridade = new Application_Model_Escolaridade();
+           $escolaridade->setId($res->id_escolaridade);
+           $itens[] = $escolaridade;
        }
-
-       return $cargos;
+       return $itens;
    }
-
 
 }
 

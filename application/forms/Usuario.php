@@ -95,14 +95,15 @@ class Application_Form_Usuario extends Zend_Form
         ));
 
         // Adicionando Escolaridade
-        // TODO: Colocar a escolaridade para buscar do cadastro de escolaridade.
+        // Buscando o modelo de escolaridade
+        $esc = new Application_Model_Escolaridade();
+        $itens = $esc->getEscolaridades();
+        array_unshift($itens, "- Selecione");
+        
         $this->addElement("select",'escolaridade',array(
             'label'=> "Escolaridade:",
             'required' => true,
-            "multiOptions"=> array(
-                "0" => "Fundamental",
-                "1" => "Ensino Médio"
-            )
+            "multiOptions"=> $itens
         ));
 
         // Adicionando Faixa salarial.

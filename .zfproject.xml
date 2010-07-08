@@ -25,11 +25,14 @@
         <dbTableDirectory>
           <dbTableFile dbTableName="Usuario"/>
           <dbTableFile dbTableName="Cargos"/>
+          <dbTableFile dbTableName="Escolaridade"/>
         </dbTableDirectory>
         <modelFile modelName="UsuarioMapper"/>
         <modelFile modelName="Usuario"/>
         <modelFile modelName="Cargos"/>
         <modelFile modelName="CargosMapper"/>
+        <modelFile modelName="Escolaridade"/>
+        <modelFile modelName="EscolaridadeMapper"/>
       </modelsDirectory>
       <modulesDirectory>
         <moduleDirectory moduleName="admin">

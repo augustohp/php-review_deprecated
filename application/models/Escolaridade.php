@@ -1,10 +1,10 @@
 <?php
 
-class Application_Model_Cargos
+class Application_Model_Escolaridade
 {
 
     protected $_id;
-    protected $_cargo;
+    protected $_escolaridade;
     protected $_disponivel;
 
     public function __contruct(array $opcoes = null){
@@ -13,7 +13,7 @@ class Application_Model_Cargos
         }
     }
 
-        public function  __set($name,  $value) {
+    public function  __set($name,  $value) {
         $metodo = 'set'.ucfirst($name);
 
         // Verificando se o campo solicitado existe.
@@ -51,17 +51,14 @@ class Application_Model_Cargos
     }
 
     public function setId($id){
-        $this->_id = (int) $id;
+        $this->_id = (int)$id;
 
-        $mapper = new Application_Model_CargosMapper();
-        $usuario = $mapper->find($id);
+        $mapper = new Application_Model_EscolaridadeMapper();
+        $esc = $mapper->find($id);
 
-        $itens = array(
-            'cargo' => $usuario->ds_cargo,
-            'disponivel' => $usuario->in_disponivel
-        );
+        $this->_escolaridade = $esc->ds_escolaridade;
+        $this->_disponivel = (bool)$esc->in_disponivel;
 
-        $this->setOptions($itens);
         return $this;
     }
 
@@ -69,13 +66,13 @@ class Application_Model_Cargos
         return $this->_id;
     }
 
-    public function setCargo($cargo){
-        $this->_cargo = (string)$cargo;
+    public function setEscolaridade($escol){
+        $this->_escolaridade = (string)$escol;
         return $this;
     }
 
-    public function getCargo(){
-        return $this->_cargo;
+    public function getEscolaridade(){
+        return $this->_escolaridade;
     }
 
     public function setDisponivel($disp){
@@ -91,16 +88,15 @@ class Application_Model_Cargos
         return (bool)$this->_disponivel;
     }
 
-    public function getCargos(){
-        $mapper = new Application_Model_CargosMapper();
-        $opcoes = $mapper->fetchAll(array("in_disponivel = 1"));
+    public function getEscolaridades(){
+
+        $mapper = new Application_Model_EscolaridadeMapper();
+        $opcoes = $mapper->fetchAll(array('in_disponivel = 1'));
         $itens = array();
         foreach($opcoes as $item){
-            $itens[$item->id] = $item->cargo;
+            $itens[$item->getId()] = $item->getEscolaridade();
         }
-
         return $itens;
-
     }
 }
 
