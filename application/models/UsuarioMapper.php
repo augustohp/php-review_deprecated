@@ -65,8 +65,10 @@ class Application_Model_UsuarioMapper
            'id_faixa_salarial' => $usuario->faixaSalarial->getId(),
            'id_nivel_cargo' => $usuario->cargo->getId(),
            'ds_como_conheceu' => $usuario->getComoConheceu(),
-           'dt_criacao' => date('Y-m-d H:i:s')
+           'dt_criacao'=> date('Y-m-d H:i:s'),
+           'id_grupo'  => $usuario->getGrupo()
        );
+       echo var_dump($data);
 
        // Verificando se existe usuario. Caso exista atualiza, senao grava
        if (null === ($id = $usuario->getId())){
@@ -74,6 +76,8 @@ class Application_Model_UsuarioMapper
        }else{
            $this->getDbTable()->update($data, array('id_enquete = ?',$id));
        }
+
+       return $this->getDbTable()->getAdapter()->lastInsertId('usuario');
    }
 
    public function find($id){

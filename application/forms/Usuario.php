@@ -97,8 +97,9 @@ class Application_Form_Usuario extends Zend_Form
         // Adicionando Escolaridade
         // Buscando o modelo de escolaridade
         $esc = new Application_Model_Escolaridade();
-        $itens = $esc->getEscolaridades();
-        array_unshift($itens, "- Selecione");
+        $itens = array(""=>"- Selecione");
+        $itens += $esc->getEscolaridades();
+        
         
         $this->addElement("select",'escolaridade',array(
             'label'=> "Escolaridade:",
@@ -107,23 +108,22 @@ class Application_Form_Usuario extends Zend_Form
         ));
 
         // Adicionando Faixa salarial.
-        // TODO: Colocar a escolaridade para buscar do cadastro de Faixas salariais.
+        // Buscando o valor da faixa salarial direto do banco de dados
+        $faixa = new Application_Model_FaixaSalarial();
+        $itens = array(""=>"- Selecione");
+        $itens += $faixa->getFaixas();
         $this->addElement("select",'faixaSalarial',array(
             'label'=> "Faixa Salarial:",
             'required' => true,
-            "multiOptions"=> array(
-                "0" => "de R$0,00 a R$ 500,00",
-                "1" => "mais de R$500,00"
-            )
+            "multiOptions"=> $itens
         ));
 
         // Adicionando Nível de cargo
         // criando a instancia dos cargos
         $cargo = new Application_Model_Cargos();
-        $itens = $cargo->getCargos();
-        array_unshift($itens, "- Selecione");
-
-
+        $itens = array(""=>"- Selecione");
+        $itens += $cargo->getCargos();
+        
         $this->addElement("select",'cargo',array(
             'label'=> "Nível do Cargo:",
             'required' => true,

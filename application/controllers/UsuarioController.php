@@ -2,7 +2,6 @@
 
 class UsuarioController extends Zend_Controller_Action
 {
-
     public function init()
     {
         /* Initialize action controller here */
@@ -11,14 +10,13 @@ class UsuarioController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
-
     }
 
     public function novoAction()
     {
         $request = $this->getRequest();
         $form = new Application_Form_Usuario();
-        
+
         if ($this->getRequest()->isPost()){
             if ($form->isValid($request->getPost())){
                 $resultado = $form->getValues();
@@ -26,7 +24,16 @@ class UsuarioController extends Zend_Controller_Action
                     $usuario = new Application_Model_Usuario($resultado);
                     $usuarioM = new Application_Model_UsuarioMapper();
                     $usuarioM->save($usuario);
-                    return $this->_helper->redirector('index');
+
+                    // Enviando e-mail de confirmação para o usuário
+                    $mail = new Zend_Mail();
+
+                    $mail->setFrom('no-reply@revistaphp.com',"Revista PHP")
+                         ->addTo($usuario->getEmail(),$usuario->getNome())
+                         ->setBodyText("Seu cadastro foi realizado com sucesso!!!")
+                         ->setSubject("Confirmação de cadastro na Revista PHP")
+                         ->send();
+                    return $this->_helper->redirector('finish');
                 }
             }
         }
@@ -34,8 +41,15 @@ class UsuarioController extends Zend_Controller_Action
         $this->view->form = $form;
     }
 
+    public function finishAction()
+    {
+        
+    }
+
 
 }
+
+
 
 
 

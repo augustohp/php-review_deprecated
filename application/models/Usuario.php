@@ -145,7 +145,7 @@ class Application_Model_Usuario
     }
 
     public function setSexo($sexo){
-        $this->_sexo = (int)$sexo;
+        $this->_sexo = $sexo;
         return $this;
     }
 
@@ -214,7 +214,7 @@ class Application_Model_Usuario
     }
 
     public function setEstado($estado){
-        $this->_estado = (int)$estado;
+        $this->_estado = $estado;
         return $this;
     }
 
@@ -223,25 +223,23 @@ class Application_Model_Usuario
     }
 
     public function setEscolaridade($escolaridade){
-        $this->_escolaridade = (int)$escolaridade;
+        $this->_escolaridade = new Application_Model_Escolaridade();
+        $this->_escolaridade->setId($escolaridade);
         return $this;
     }
     
     public function getEscolaridade(){
-        // TODO: Instanciar a classe de escolaridade para retornar o valor.
-        
-        return $this;
+        return $this->_escolaridade;
     }
     
-    public function setFaixaSalarial(int $faixa){
-        $this->_faixa_salarial = $faixa;
+    public function setFaixaSalarial($faixa){
+        $this->_faixa_salarial = new Application_Model_FaixaSalarial();
+        $this->_faixa_salarial->setId($faixa);
         return $this;
     }
     
     public function getFaixaSalarial(){
-        // TODO: Retornar a instancia da classe faixa salarial
-        
-        return $this;
+        return $this->_faixa_salarial;
     }
 
     public function setCargo($nivel){
@@ -255,7 +253,7 @@ class Application_Model_Usuario
     }
 
     public function setComoConheceu($opniao){
-        $this->_como_conheceu = (string)$opcao;
+        $this->_como_conheceu = (string)$opniao;
         return $this;
     }
 
@@ -285,14 +283,14 @@ class Application_Model_Usuario
         return $this->_dt_atualizacao;
     }
 
-    public function setGrupo(int $grupo){
+    public function setGrupo($grupo){
         $this->_grupo = $grupo;
     }
 
     public function getGrupo(){
         // TODO: retornar neste método uma instancia da classe grupo.
 
-        return $this;
+        return $this->_grupo;
     }
 
     public function setSenha($senha){

@@ -15,6 +15,7 @@
         <controllerFile controllerName="Usuario">
           <actionMethod actionName="index"/>
           <actionMethod actionName="novo"/>
+          <actionMethod actionName="finish"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -26,6 +27,7 @@
           <dbTableFile dbTableName="Usuario"/>
           <dbTableFile dbTableName="Cargos"/>
           <dbTableFile dbTableName="Escolaridade"/>
+          <dbTableFile dbTableName="FaixaSalarial"/>
         </dbTableDirectory>
         <modelFile modelName="UsuarioMapper"/>
         <modelFile modelName="Usuario"/>
@@ -33,6 +35,8 @@
         <modelFile modelName="CargosMapper"/>
         <modelFile modelName="Escolaridade"/>
         <modelFile modelName="EscolaridadeMapper"/>
+        <modelFile modelName="FaixaSalarial"/>
+        <modelFile modelName="FaixaSalarialMapper"/>
       </modelsDirectory>
       <modulesDirectory>
         <moduleDirectory moduleName="admin">
@@ -62,6 +66,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Usuario">
             <viewScriptFile forActionName="novo"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Usuario">
+            <viewScriptFile forActionName="finish"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

@@ -1,7 +1,8 @@
 <?php
 
-class Application_Model_CargosMapper
+class Application_Model_FaixaSalarialMapper
 {
+
     protected $_dbTable;
 
     public function setDbTable($dbTable){
@@ -9,7 +10,6 @@ class Application_Model_CargosMapper
        if(is_string($dbTable)){
            $dbTable = new $dbTable();
        }
-
        // verificando se $dbTable é uma instância de Zend_Db_DbTable
        if (!$dbTable instanceof Zend_Db_Table_Abstract){
            throw new Exception("A Classe não é uma instância de Zend_Db_Table");
@@ -21,22 +21,22 @@ class Application_Model_CargosMapper
    public function getDbTable(){
        // caso não exista uma instância da classe a mesma é criada.
        if (null === $this->_dbTable){
-           $this->setDbTable('Application_Model_DbTable_Cargos');
+           $this->setDbTable('Application_Model_DbTable_FaixaSalarial');
        }
-
        return $this->_dbTable;
    }
 
-   public function save(Application_Model_Cargos $cargo){
+   public function save(Application_Model_FaixaSalarial $faixao){
        $arr = array(
-           'ds_cargo' => $cargo->getCargo(),
-           'in_disponivel' => $cargo->getDisponivel()
+           'vl_minimo' => $faixa->getMinimo(),
+           'vl_maximo' => $faixa->getMaximo(),
+           'in_disponivel' => $faixa->getDisponivel()
        );
 
-       if(null === ($id = $cargo->getId())){
+       if(null === ($id = $faixa->getId())){
            $this->getDbTable()->insert($arr);
        }else{
-           $this->getDbTable()->update($arr,array('id_nivel_cargo = ?',$id));
+           $this->getDbTable()->update($arr,array('id_faixa_salarial = ?',$id));
        }
 
    }
@@ -55,14 +55,14 @@ class Application_Model_CargosMapper
            return;
        }
 
-       $cargos = array();
+       $faixas = array();
        foreach($resultado as $item){
-           $cargo = new Application_Model_Cargos();
-           $cargo->setId($item->id_nivel_cargo);
-           $cargos[] = $cargo;
+           $faixa = new Application_Model_FaixaSalarial();
+           $faixa->setId($item->id_faixa_salarial);
+           $faixas[] = $faixa;
        }
 
-       return $cargos;
+       return $faixas;
    }
 }
 
