@@ -73,7 +73,7 @@ class Application_Model_FaixaSalarial
     }
 
     public function setMaximo($valor){
-        if(is_numeric($valor)){
+        if(is_real((float)$valor)){
             $this->_maximo = (float)$valor;
         }else{
             throw new Exception("Favor informar um valor numérico para o campo Máximo.");
@@ -86,10 +86,11 @@ class Application_Model_FaixaSalarial
     }
 
     public function setMinimo($valor){
-        if (is_numeric($valor)){
-            $this->_minimo = (float)$valor;
+        $real = (empty($valor)?0:$valor);
+        if (is_float((float)$real)){
+            $this->_minimo = (float)$real;
         }else{
-            throw new Exception('Favor informar um valor numérico para o campo Mínimo.');
+            throw new Exception('Favor informar um valor numérico para o campo Mínimo.'.$real);
         }
         return $this;
     }

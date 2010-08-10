@@ -68,7 +68,6 @@ class Application_Model_UsuarioMapper
            'dt_criacao'=> date('Y-m-d H:i:s'),
            'id_grupo'  => $usuario->getGrupo()
        );
-       echo var_dump($data);
 
        // Verificando se existe usuario. Caso exista atualiza, senao grava
        if (null === ($id = $usuario->getId())){

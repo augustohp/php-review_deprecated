@@ -85,9 +85,9 @@ class Application_Model_Usuario
      *  
      * @param int $id 
      */
-    public function setId(int $id){
+    public function setId($id){
         // selecionando o item Id
-        $this->_id = $id;
+        $this->_id = (int)$id;
 
         // buscando os valores no banco de dados
         $mapper = new Application_Model_UsuarioMapper();
@@ -95,7 +95,7 @@ class Application_Model_Usuario
 
         // Preenchendo os campos para utilizacao.
         $itens = array(
-                'nome' => $usuario->ds_usuario,
+                'nome' => $usuario->nm_usuario,
                 'email'   => $usuario->ds_email,
                 'sexo'    => $usuario->sexo,
                 'endereco'=> $usuario->ds_endereco,
