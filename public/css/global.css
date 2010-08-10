@@ -99,7 +99,8 @@ ul li a { font-weight: normal; text-decoration: none; }
 #templatemo_header_wrapper {
 	width: 100%;
 	height: 82px;
-	background: url(/images/templatemo_header.png) repeat-x;
+	background-color: #0088dd;
+	/* background: url(/images/templatemo_header.png) repeat-x;*/
 }
 
 #templatemo_header {
@@ -124,6 +125,10 @@ ul li a { font-weight: normal; text-decoration: none; }
 	color: #ffffff;
 	font-weight: normal;
 	text-decoration: none;
+}
+
+#site_title a img{
+    margin-top: -10px;
 }
 
 #site_title h1 a:hover {
@@ -290,7 +295,10 @@ ul li a { font-weight: normal; text-decoration: none; }
 	left: 0;
 	width: 89px;
 	height: 59px;
-	background: url(/images/news_image_frame.png) no-repeat;
+        font-size: 15pt;
+        font-weight: bold;
+        text-align: center;
+	/* background: url(/images/news_image_frame.png) no-repeat; */
 }
 
 .newsbox p {
@@ -349,15 +357,16 @@ ul li a { font-weight: normal; text-decoration: none; }
 
 #testimonial_newsletter {
 	width: 260px;
-	height: 246px;
+	height: 206px;
 	padding: 20px 30px;
 	background: url(/images/testimonial_newsletter.png) no-repeat;
 }
 
 #testimonial {
 	width: 260px;
-	height: 137px;
+	height: 87px;
 	margin-bottom: 50px;
+        margin-top: 20px;
 }
 
 #testimonial h2 {
@@ -380,6 +389,31 @@ ul li a { font-weight: normal; text-decoration: none; }
 	margin-left: 20px;
 }
 
+#buscar_item{
+    height: 20px;
+    width: 160px;
+    color: #000000;
+    font-size: 12px;
+    padding: 2px 5px;
+    font-variant: normal;
+    line-height: normal;
+    border: 1px solid #dadada;
+    background: #ffffff;
+}
+
+#busca_subscribe{
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    vertical-align: bottom;
+    white-space: pre;
+    outline: none;
+    color:#8080ff;
+    border: none;
+    background: none;
+}
+
 #newsletter {
 	padding-left: 50px;
 }
@@ -394,7 +428,7 @@ ul li a { font-weight: normal; text-decoration: none; }
 #newsletter_email {
 	height: 13px;
 	width: 110px;
-	color: #fff;
+	color: #000000;
 	font-size: 12px;
 	padding: 2px 5px;
 	font-variant: normal;
