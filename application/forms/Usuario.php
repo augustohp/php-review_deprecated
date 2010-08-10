@@ -74,10 +74,18 @@ class Application_Form_Usuario extends Zend_Form
             'filters' => array('StringTrim')
         ));
 
-        $this->addElement("text","estado",array(
+        $estados = array('Acre','Alagoas','Amapá','Amazonas','Bahia','Ceará','Distrito Federal','Espírito Santo','Goias','Maranhão','Mato Grosso',
+            'Mato Grosso do Sul','Minas Gerais','Pará','Paraíba','Paraná','Pernambuco','Piauí','Rio de Janeiro',
+            'Rio Grande do Norte','Rio Grande do Sul','Rondônia','Roraima','Santa Catarina','São Paulo','Sergipe',
+            'Tocantins','- Outro País');
+
+        $estados[''] = ' - Selecione';
+        asort($estados);
+
+        $this->addElement("select","estado",array(
             'label'  => "Estado:",
             'required' => false,
-            'filters' => array('StringTrim')
+            'multiOptions' => $estados
         ));
 
         // Adicionando o campo senha e confirmação de senha
