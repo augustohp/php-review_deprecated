@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Corporate Website Template</title>
-<meta name="keywords" content="corporate website, free css templates, CSS, HTML" />
-<meta name="description" content="Corporate Template is a free CSS template provided by templatemo.com" />
+<title>:: PHP Review :: A sua nova revista on-line de PHP ::</title>
+<meta name="keywords" content="revista, php, php review, programacao, vida de programador, design, tableless" />
+<meta name="description" content="A PHP Review é a sua nova revista sobre PHP, mercado de trabalho e tudo o que envolve a programação." />
 <link href="/css/global.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -12,22 +12,20 @@
 	<div id="templatemo_header">
 
         <div id="site_title">
-            <a href="http://www.templatemo.com" target="_parent">
-                <img src="images/templatemo_logo.png" alt="css templates" />
-                <span>FREE CSS TEMPLATES</span>
+            <a href="/" alt="PHP Review">
+                <img src="/images/logo.png" alt="css templates" />
             </a>
       </div>
-
 
         <div id="templatemo_menu">
 
             <ul>
-                <li><a href="#" class="current">Home</a></li>
-                <li><a href="http://www.templatemo.com" target="_parent">Templates</a></li>
-                <li><a href="http://www.flashmo.com" target="_parent">Flash Files</a></li>
-                <li><a href="http://www.koflash.com" target="_parent">Gallery</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="<?= $this->url(array('controller'=>'index','action'=>'sobre.revista'),'default',true) ?>" >A Revista</a></li>
+                <li><a href="<?= $this->url(array('controller'=>'edicoes','action'=>'index'),'default',true) ?>" >Edições</a></li>
+                <li><a href="<?= $this->url(array('controller'=>'index','action'=>'nossa.equipe'),'default',true) ?>">Nossa Equipe</a></li>
+                <li><a href="<?= $this->url(array('controller'=>'usuario','action'=>'novo'),'default',true) ?>">Cadastre-se</a></li>
+                <li><a href="<?= $this->url(array('controller'=>'contato','action'=>'index'),'default',true) ?>">Contato</a></li>
             </ul>
 
         </div> <!-- end of templatemo_menu -->
@@ -37,19 +35,15 @@
 
 <div id="templatemo_feature_wrapper">
 	<div id="templatemo_feature">
-
 		<div id="feature_left">
-
-        	<h1>Welcome to CSS Template</h1>
-            <p>Duis vitae velit sed dui malesuada dignissim. Donec mollis aliquet ligula. Maecenas adipiscing elementum ipsum. Pellentesque vitae magna. Sed nec est. Suspendisse a nibh tristique justo rhoncus volutpat. Suspendisse vitae neque eget ante tristique vestibulum.</p>
-            <div class="button"><a href="#">Read more</a></div>
-
+        	<h1>PHP Review no forno</h1>
+            <p>Com previsão de inaguração para a primeira quinzena de agosto, a PHP Review promete inovar já na primeira edição.</p>
+            <div class="button"><a href="#">aguarde!!!</a></div>
         </div>
-
         <div id="feature_right">
 
         	<div id="feature_image"><span></span>
-            	<img src="images/templatemo_image_01.png" alt="image" />
+            	<img src="/images/templatemo_image_01.png" alt="image" />
             </div>
 
         </div>
@@ -67,35 +61,32 @@
 
     <div id="templatemo_sidebar">
 
-        <h2>Latest <span>News</span></h2>
-        <div class="newsbox">
-        	<div class="news_image"><span></span><img src="/images/templatemo_image_04.png" alt="image" /></div>
-            <p>Aenean cursus. Maecenas aliqu am, ligula id egestas suscipit, nisi sapien dignissim. </p>
-            <div class="cleaner"></div><div class="readmore"><a href="#">read more</a></div>
-        </div>
-        <div class="newsbox">
-        	<div class="news_image"><span></span><img src="/images/templatemo_image_05.png" alt="image" /></div>
-            <p>estibulum ullamcorper eros vel lectus sagittis aliquet aliquam ante pretium. </p>
-            <div class="cleaner"></div><div class="readmore"><a href="#">read more</a></div>
-        </div>
-        <div class="newsbox">
-        	<div class="news_image"><span></span><img src="/images/templatemo_image_06.png" alt="image" /></div>
-            <p>Praesent pretium purus ut lorem luctus ornare interdum diam eleifend. </p>
-            <div class="cleaner"></div><div class="readmore"><a href="#">read more</a></div>
-        </div>
+        <?php
+        if (is_array($this->noticias) && count($this->noticias) != 0){
+        echo '<h2>Últimas <span>Notícias</span></h2>';
+        foreach($this->noticias as $noticia){ ?>
 
+        <div class="newsbox">
+        	<div class="news_image"><span><?= $noticia->getDataPublicacao('d/m/y') ?></span><!-- <img src="/images/templatemo_image_04.png" alt="image" /> --></div>
+            <p><?= $noticia->getTitulo() ?><br /> <em> (<?= $noticia->getUsuario()->getNome() ?>)</em> </p>
+            <div class="cleaner"></div><div class="readmore"><a href="<?= $this->url(array('controller'=>'noticias','action'=>'view','id'=>$noticia->getId()),'default',true)?>">leia mais</a></div>
+        </div>
+        <?php } }?>
         <div id="testimonial_newsletter">
             <div id="testimonial">
-                <h2>Testimonial</h2>
-                <p><img class="open" src="images/open.png" alt="opening tag" />urabitur adipiscing tellus eu arcu tincidunt condimentum. Aliquam ipsum felis, pulvinar at lacinia at, commodo ut nisi. Nullam egestas fermentum nis.<img class="close" src="images/close.png" alt="closing tag" /></p>
-                <cite class="float_r"><a href="#">Vestibulum</a></cite>            </div>
-
+                <h2>Busca</h2>
+                <?php // echo $this->Busca; ?>
+                <form action="<?= $this->url(array('controller'=>'buscar','action'=>'index'),'default',true) ?>" method="post">
+                	<input type="text" id="buscar_item" />
+                    <input type="submit" name="submit" value="Buscar" id="busca_subscribe" />
+                </form>
+            </div>
             <div id="newsletter">
             	<h2>Newsletter</h2>
-                <form action="#" method="get">
-
+                <?php // echo $this->Newsletter; ?>
+                <form action="<?= $this->url(array('controller'=>'index','action'=>'newsletter'),'default',true) ?>" method="post">
                 	<input type="text" id="newsletter_email" />
-                    <input type="submit" name="submit" value="Subscribe" id="newsletter_subscribe" />
+                    <input type="submit" name="submit" value="Inscrever" id="newsletter_subscribe" />
                 </form>
             </div>
     	</div>
@@ -104,7 +95,7 @@
 
     <div class="cleaner_h30"></div>
 
-    <div id="latest_projects">
+<?php /*    <div id="latest_projects">
 
 	<div id="latest_project_text">
             <h2>Latest Projects</h2>
@@ -140,7 +131,7 @@
 	  </div>
 
     </div>
-
+*/ ?>
 	<div  class="cleaner"></div>
 </div> <!-- end of content wrapper -->
 

@@ -1,26 +1,41 @@
-<h2>Welcome to <span>Corporate Template</span></h2>
+<?php
+if (is_array($this->capaNoticias)){
+$noticia = $this->capaNoticias[0]; ?>
+<h2><?= $noticia->getTitulo() ?></h2>
 
-      <p>This <a href="http://www.templatemo.com" target="_parent">free web template</a> is provided by <a href="http://www.templatemo.com" target="_parent">TemplateMo.com</a> website. You may use this template in your websites. Credit goes to <a href="http://www.photovaco.com" target="_blank">Free Photos</a> for photos. </p>
-      <p>Fusce ac orci sit amet velit ultrices condimentum. Integer imperdiet odio ac eros. Ut id massa. Nullam nunc. Vivamus sagittis varius lorem.Maecenas aliquam, ligula id egestas suscipit, nisi sapien dignissim nibh, ac vestibulum lorem urna in neque.</p>
-        <div class="readmore"><a href="#">read more</a></div>
+      <p>Criada por <a href="<?php echo $this->url(array('controller'=>'usuario','action'=>'view','id' => $noticia->usuario->getId())) ?>"><?php echo $noticia->usuario->getNome() ?></a> no dia <?= $noticia->getDataPublicacao('d/m/Y') ?> </p>
+      <p><?= $noticia->getResumo() ?></p>
+        <div class="readmore"><a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId())) ?>">leia mais</a></div>
 
         <div class="cleaner_h40"></div>
-        
-        <h2>Our <span>Services</span></h2>
-        <p>	Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illovitae dicta sunt explicabo.</p>
 
-        <div class="col_w265 float_l">
-            <h3>Web Design</h3>
-            <div class="two_col_image">
-                <a href="#"><img src="images/templatemo_image_02.png" alt="image" width="249" height="105" /></a>            </div>
-          <p>Aenean cursus aesf aecenas aliquam, ligula idegers estas suscipit, nisisapien dignissim nibh, acvestibulum lore mur nain neque. </p>
-            <div class="readmore"><a href="#">read more</a></div>
-        </div>
+<?php $noticia = $this->capaNoticias[0]; ?>
+        <h2><?= $noticia->getTitulo() ?></h2>
+        <p>Criada por <a href="<?php echo $this->url(array('controller'=>'usuario','action'=>'view','id' => $noticia->usuario->getId())) ?>"><?php echo $noticia->usuario->getNome() ?></a> no dia <?= $noticia->getDataPublicacao('d/m/Y') ?> </p>
+        <p><?= $noticia->getResumo() ?></p>
+        <div class="readmore"><a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId())) ?>">leia mais</a></div>
+   
+        <div class="cleaner_h40"></div>
 
-        <div class="col_w265 float_r">
-            <h3>Photography</h3>
+<?php // removendo os dois primeiros registros
+  $vetor = $this->capaNoticias;
+  unset($vetor[0]); unset($vetor[0]);
+
+  if (is_array($vetor)){
+      foreach($vetor as $id => $noticia){ ?>
+         <div class="col_w265 <?php echo ($id%2==0?'float_r':'float_l') ?>">
+            <h3><?= $noticia->getTitulo() ?></h3>
             <div class="two_col_image">
-                <a href="#"><img src="images/templatemo_image_03.png" alt="image" width="249" height="105" /></a> </div>
-          <p>Phasellus convallis facilisis risus vitae fringilla. Aliquam imperdiet, est at scelerisque tincidunt, orci ipsum mattis est.</p>
-            <div class="readmore"><a href="#">read more</a></div>
-        </div>
+                <a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId())) ?>"><img src="/images/capa_image_<?php echo $id ?>.png" alt="image" width="249" height="105" /></a>            </div>
+          <p><?= $noticia->getResumo() ?></p>
+            <div class="readmore"><a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId())) ?>">leia mais</a></div>
+</div>
+&nbsp;<br>&nbsp;<br>
+<?php
+     if ($id == 6) {
+         break;
+     }
+   }
+  }
+}
+?>
