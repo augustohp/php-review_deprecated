@@ -6,7 +6,7 @@ class Application_Form_Usuario extends Zend_Form
     public function init()
     {
         // Criando o formulário de cadastro de novo usuário.
-        $this->setMethod('post');
+        $this->setMethod('post')->setAttrib('id','formUsuario');
 
         // Nome do usuário
         $this->addElement("text","nome",array(
@@ -36,20 +36,20 @@ class Application_Form_Usuario extends Zend_Form
         // adicionando Endereço
         $this->addElement("text","endereco",array(
             'label' => "Endereço:",
-            'required' => false,
+            'required' => true,
             'filters' => array('StringTrim','StringToLower')
         ));
         // Adicionando número
         $this->addElement("text","numero",array(
             'label'  => "Número:",
-            'required' => false,
+            'required' => true,
             'filters' => array('StringTrim')
         ));
 
         // adicionando Complemento
         $this->addElement("text","complEndereco",array(
             'label'  => "Complemento:",
-            'required' => false,
+            'required' => true,
             'filters' => array('StringTrim')
         ));
 
@@ -64,13 +64,13 @@ class Application_Form_Usuario extends Zend_Form
 
         $this->addElement("text","bairro",array(
             'label'  => "Bairro:",
-            'required' => false,
+            'required' => true,
             'filters' => array('StringTrim')
         ));
 
         $this->addElement("text","cidade",array(
             'label'  => "Cidade:",
-            'required' => false,
+            'required' => true,
             'filters' => array('StringTrim')
         ));
 
@@ -84,7 +84,7 @@ class Application_Form_Usuario extends Zend_Form
 
         $this->addElement("select","estado",array(
             'label'  => "Estado:",
-            'required' => false,
+            'required' => true,
             'multiOptions' => $estados
         ));
 
@@ -175,9 +175,5 @@ class Application_Form_Usuario extends Zend_Form
             'ignore' => true,
             'label'  => 'Enviar'
         ));
-
     }
-
-
 }
-

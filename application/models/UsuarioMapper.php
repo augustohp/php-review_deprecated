@@ -101,5 +101,12 @@ class Application_Model_UsuarioMapper
 
        return $usuarios;
    }
+
+   public function getQuantidade(){
+
+       $db = $this->getDbTable()->fetchAll();
+
+       return $db->count();
+   }
 }
 
