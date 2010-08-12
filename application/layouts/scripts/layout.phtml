@@ -6,13 +6,16 @@
 <meta name="keywords" content="revista, php, php review, programacao, vida de programador, design, tableless" />
 <meta name="description" content="A PHP Review é a sua nova revista sobre PHP, mercado de trabalho e tudo o que envolve a programação." />
 <link href="/css/global.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/javascript/jquery.js"></script>
+<script type="text/javascript" src="/javascript/jquery.masked.js"></script>
+<script type="text/javascript" src="/javascript/phpreview.js"></script>
 </head>
 <body>
 <div id="templatemo_header_wrapper">
 	<div id="templatemo_header">
 
         <div id="site_title">
-            <a href="/" alt="PHP Review">
+            <a href="/" title="PHP Review">
                 <img src="/images/logo.png" alt="css templates" />
             </a>
       </div>
@@ -60,7 +63,7 @@
     </div> <!-- end of content -->
 
     <div id="templatemo_sidebar">
-
+<p>Temos <?php echo $this->totalUsuarios ?> usuários cadastrados.</p>
         <?php
         if (is_array($this->noticias) && count($this->noticias) != 0){
         echo '<h2>Últimas <span>Notícias</span></h2>';
@@ -69,9 +72,10 @@
         <div class="newsbox">
         	<div class="news_image"><span><?= $noticia->getDataPublicacao('d/m/y') ?></span><!-- <img src="/images/templatemo_image_04.png" alt="image" /> --></div>
             <p><?= $noticia->getTitulo() ?><br /> <em> (<?= $noticia->getUsuario()->getNome() ?>)</em> </p>
-            <div class="cleaner"></div><div class="readmore"><a href="<?= $this->url(array('controller'=>'noticias','action'=>'view','id'=>$noticia->getId()),'default',true)?>">leia mais</a></div>
+            <div class="cleaner"></div><div class="readmore"><a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId()),'default',true)?>">leia mais</a></div>
         </div>
         <?php } }?>
+<?php /*
         <div id="testimonial_newsletter">
             <div id="testimonial">
                 <h2>Busca</h2>
@@ -90,7 +94,7 @@
                 </form>
             </div>
     	</div>
-
+*/ ?>
     </div> <!-- end of slider -->
 
     <div class="cleaner_h30"></div>
@@ -141,12 +145,12 @@
 
         <div class="footer_box">
         	<div class="cleaner_h40"></div>
-        	Copyright © 2048 <a href="#">Your Company Name</a><br />
-        	Designed by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a><br />
-            Validate <a href="http://validator.w3.org/check?uri=referer">XHTML</a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
+        	Copyright © 2010 <a href="/">PHP Review</a><br />
+        	Design por <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a><br />
+                Valide <a href="http://validator.w3.org/check?uri=referer">XHTML</a> &amp; <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
         </div>
 
-        <div class="footer_box">
+        <div class="footer_box" style="display:none">
         	<h2>Our Sponsor</h2>
             <div class="blog_image"><span></span><img src="images/templatemo_image_11.png" alt="web template" /></div>
             <p class="blog_section"><span>Monday, November 2010</span>
@@ -154,12 +158,10 @@
       </div>
 
         <div class="footer_box">
-       		<h2>Business partners</h2>
+       		<h2>Parceiros</h2>
             <ul>
-            	<li><a href="#">Cum sociis natoque penatibus</a></li>
-                <li><a href="#">Vestibulum auctor odio eget</a></li>
-                <li><a href="#">Praesent sollicitudin mollis</a></li>
-                <li><a href="#">Quisque blandit eros et lorem</a></li>
+            	<li><a href="http://www.novatec.com.br">Novatec Editora</a></li>
+                <li><a href="http://www.php.net">PHP</a></li>
             </ul>
         </div>
 
