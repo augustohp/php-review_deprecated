@@ -1,0 +1,6 @@
+<h2><span><?php echo $this->noticia->getTitulo();  ?></span></h2>
+<h4><em><font size="1">Publicado em <?php echo $this->noticia->getDataPublicacao() ?></font><br><?php echo $this->noticia->getResumo() ?></em></h4>
+
+<?php echo $this->noticia->getConteudo();  ?>
+
+<blockquote><?php echo $this->noticia->usuario->getNome(); ?></blockquote>
