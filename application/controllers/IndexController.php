@@ -11,6 +11,9 @@ class IndexController extends Zend_Controller_Action
         $this->noticiaMapper = new Application_Model_NoticiasMapper();
         $this->view->noticias = $this->noticiaMapper->getUltimasNoticias();
 
+        $usuario = new Application_Model_UsuarioMapper();
+        $this->view->totalUsuarios = $usuario->getQuantidade();
+
     }
 
     public function indexAction()

@@ -1,17 +1,17 @@
 <?php
 if (is_array($this->capaNoticias)){
 $noticia = $this->capaNoticias[0]; ?>
-<h2><?= $noticia->getTitulo() ?></h2>
+<h2><a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId())) ?>"><?= $noticia->getTitulo() ?></a></h2>
 
-      <p>Criada por <a href="<?php echo $this->url(array('controller'=>'usuario','action'=>'view','id' => $noticia->usuario->getId())) ?>"><?php echo $noticia->usuario->getNome() ?></a> no dia <?= $noticia->getDataPublicacao('d/m/Y') ?> </p>
+      <p>Criada por <!-- <a href="<?php // echo $this->url(array('controller'=>'usuario','action'=>'view','id' => $noticia->usuario->getId())) ?>"> --><?php echo $noticia->usuario->getNome() ?><!-- </a> --> no dia <?= $noticia->getDataPublicacao('d/m/Y') ?> </p>
       <p><?= $noticia->getResumo() ?></p>
         <div class="readmore"><a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId())) ?>">leia mais</a></div>
 
         <div class="cleaner_h40"></div>
 
 <?php $noticia = $this->capaNoticias[0]; ?>
-        <h2><?= $noticia->getTitulo() ?></h2>
-        <p>Criada por <a href="<?php echo $this->url(array('controller'=>'usuario','action'=>'view','id' => $noticia->usuario->getId())) ?>"><?php echo $noticia->usuario->getNome() ?></a> no dia <?= $noticia->getDataPublicacao('d/m/Y') ?> </p>
+        <h2><a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId())) ?>"><?= $noticia->getTitulo() ?></a></h2>
+        <p>Criada por <!-- <a href="<?php // echo $this->url(array('controller'=>'usuario','action'=>'view','id' => $noticia->usuario->getId())) ?>"> --><?php echo $noticia->usuario->getNome() ?><!-- </a> --> no dia <?= $noticia->getDataPublicacao('d/m/Y') ?> </p>
         <p><?= $noticia->getResumo() ?></p>
         <div class="readmore"><a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId())) ?>">leia mais</a></div>
    
@@ -19,12 +19,12 @@ $noticia = $this->capaNoticias[0]; ?>
 
 <?php // removendo os dois primeiros registros
   $vetor = $this->capaNoticias;
-  unset($vetor[0]); unset($vetor[0]);
+  unset($vetor[0]); unset($vetor[1]);
 
   if (is_array($vetor)){
       foreach($vetor as $id => $noticia){ ?>
          <div class="col_w265 <?php echo ($id%2==0?'float_r':'float_l') ?>">
-            <h3><?= $noticia->getTitulo() ?></h3>
+            <h3><a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId())) ?>"><?= $noticia->getTitulo() ?></a></h3>
             <div class="two_col_image">
                 <a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId())) ?>"><img src="/images/capa_image_<?php echo $id ?>.png" alt="image" width="249" height="105" /></a>            </div>
           <p><?= $noticia->getResumo() ?></p>
