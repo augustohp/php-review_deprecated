@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>:: PHP Review :: A sua nova revista on-line de PHP ::</title>
 <meta name="keywords" content="revista, php, php review, programacao, vida de programador, design, tableless" />
 <meta name="description" content="A PHP Review é a sua nova revista sobre PHP, mercado de trabalho e tudo o que envolve a programação." />
@@ -9,6 +9,7 @@
 <script type="text/javascript" src="/javascript/jquery.js"></script>
 <script type="text/javascript" src="/javascript/jquery.masked.js"></script>
 <script type="text/javascript" src="/javascript/phpreview.js"></script>
+<script type="text/javascript" src="http://widgets.twimg.com/j/2/widget.js"></script>
 </head>
 <body>
 <div id="templatemo_header_wrapper">
@@ -26,7 +27,7 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="<?= $this->url(array('controller'=>'index','action'=>'sobre.revista'),'default',true) ?>" >A Revista</a></li>
                 <li><a href="<?= $this->url(array('controller'=>'edicoes','action'=>'index'),'default',true) ?>" >Edições</a></li>
-                <li><a href="<?= $this->url(array('controller'=>'index','action'=>'nossa.equipe'),'default',true) ?>">Nossa Equipe</a></li>
+                <li><a href="<?= $this->url(array('controller'=>'index','action'=>'nossa.equipe'),'default',true) ?>">A Equipe</a></li>
                 <li><a href="<?= $this->url(array('controller'=>'usuario','action'=>'novo'),'default',true) ?>">Cadastre-se</a></li>
                 <li><a href="<?= $this->url(array('controller'=>'contato','action'=>'index'),'default',true) ?>">Contato</a></li>
             </ul>
@@ -75,6 +76,21 @@
             <div class="cleaner"></div><div class="readmore"><a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId()),'default',true)?>">leia mais</a></div>
         </div>
         <?php } }?>
+<script type="text/javascript">
+new TWTR.Widget({version: 2,type: 'profile',rpp: 4,interval: 6000,width: 250,height: 300,
+  theme: {
+    shell: {
+      background: '#77acbd', color: '#ffffff'
+    },
+    tweets: {
+      background: '#00752f', color: '#ffffff',links: '#6de9fc'
+    }
+  },
+  features: {
+    scrollbar: false,loop: false,live: false,hashtags: true,timestamp: true,avatars: false,behavior: 'all'
+  }
+}).render().setUser('phpreview').start();
+</script>
 <?php /*
         <div id="testimonial_newsletter">
             <div id="testimonial">
@@ -160,7 +176,7 @@
         <div class="footer_box">
        		<h2>Parceiros</h2>
             <ul>
-            	<li><a href="http://www.novatec.com.br">Novatec Editora</a></li>
+            	<li><a href="http://www.novatec.com.br/?idA=236">Novatec Editora</a></li>
                 <li><a href="http://www.php.net">PHP</a></li>
             </ul>
         </div>
@@ -168,6 +184,18 @@
         <div class="cleaner"></div>
     </div>
 </div>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17973136-1']);
+  _gaq.push(['_trackPageview']);
 
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </body>
+
 </html>

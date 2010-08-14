@@ -22,6 +22,7 @@
         </controllerFile>
         <controllerFile controllerName="Noticia">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="read"/>
         </controllerFile>
         <controllerFile controllerName="Edicoes">
           <actionMethod actionName="index"/>
@@ -29,6 +30,9 @@
         <controllerFile controllerName="Contato">
           <actionMethod actionName="index"/>
           <actionMethod actionName="submit"/>
+        </controllerFile>
+        <controllerFile controllerName="Achou">
+          <actionMethod actionName="index"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -65,6 +69,29 @@
           <modelsDirectory/>
           <viewsDirectory>
             <viewScriptsDirectory/>
+            <viewHelpersDirectory/>
+            <viewFiltersDirectory/>
+          </viewsDirectory>
+        </moduleDirectory>
+        <moduleDirectory moduleName="hotsite">
+          <apisDirectory enabled="false"/>
+          <configsDirectory enabled="false"/>
+          <controllersDirectory>
+            <controllerFile controllerName="Achou">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+          </controllersDirectory>
+          <formsDirectory enabled="false"/>
+          <layoutsDirectory enabled="false"/>
+          <modelsDirectory>
+            <dbTableDirectory enabled="false"/>
+          </modelsDirectory>
+          <viewsDirectory>
+            <viewScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Achou">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+            </viewScriptsDirectory>
             <viewHelpersDirectory/>
             <viewFiltersDirectory/>
           </viewsDirectory>
@@ -108,6 +135,12 @@
           <viewControllerScriptsDirectory forControllerName="Contato">
             <viewScriptFile forActionName="submit"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Noticia">
+            <viewScriptFile forActionName="read"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Achou">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -146,6 +179,8 @@
           <testApplicationControllerFile filesystemName="NoticiaControllerTest.php"/>
           <testApplicationControllerFile filesystemName="EdicoesControllerTest.php"/>
           <testApplicationControllerFile filesystemName="ContatoControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="AchouControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="AchouControllerTest.php"/>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>
       <testLibraryDirectory>

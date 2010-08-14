@@ -49,7 +49,7 @@ class Application_Form_Usuario extends Zend_Form
         // adicionando Complemento
         $this->addElement("text","complEndereco",array(
             'label'  => "Complemento:",
-            'required' => true,
+            'required' => false,
             'filters' => array('StringTrim')
         ));
 
@@ -57,8 +57,7 @@ class Application_Form_Usuario extends Zend_Form
         $this->addElement("text","cep",array(
             'label'  => "CEP:",
             'required' => true,
-            'filters' => array('StringTrim'),
-            'validators' => array('alnum')
+            'validators' => array(array('stringLength','options'=> array(0,10)))
             )
         );
 
@@ -139,7 +138,6 @@ class Application_Form_Usuario extends Zend_Form
         ));
         
         // Adicionando Nível de cargo
-        // TODO: Colocar a escolaridade para buscar do cadastro de Nível de cargo.
         $this->addElement("text",'comoConheceu',array(
             'label'=> "Como conheceu o nosso site:",
             'required' => true,
@@ -155,11 +153,12 @@ class Application_Form_Usuario extends Zend_Form
             'captcha' => array(
                 'captcha'=> 'Image',
                 'expiration' => 600,
-                'font' => "/usr/share/fonts/truetype/thai/Garuda.ttf",
-                'fontSize' => '30pt',
+                'font' => "/home/phprevie/Garuda.ttf",
+                'fontSize' => '33pt',
+		'wordLen' => 6,
                 'height' => 100,
                 'width'  => 300,
-                'imageDir' => '/var/www/revista/public/images/captcha/'
+                'imageDir' => '/home/phprevie/public_html/images/captcha/'
             )
         ));
 

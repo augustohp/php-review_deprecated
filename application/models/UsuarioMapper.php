@@ -73,7 +73,7 @@ class Application_Model_UsuarioMapper
        if (null === ($id = $usuario->getId())){
            $this->getDbTable()->insert($data);
        }else{
-           $this->getDbTable()->update($data, array('id_enquete = ?',$id));
+           $this->getDbTable()->update($data, array('id_usuario = ?',$id));
        }
 
        return $this->getDbTable()->getAdapter()->lastInsertId('usuario');

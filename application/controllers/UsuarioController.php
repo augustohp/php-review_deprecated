@@ -5,6 +5,8 @@ class UsuarioController extends Zend_Controller_Action
     public function init()
     {
         /* Initialize action controller here */
+        $usuario = new Application_Model_UsuarioMapper();
+        $this->view->totalUsuarios = $usuario->getQuantidade();
     }
 
     public function indexAction()
@@ -26,13 +28,13 @@ class UsuarioController extends Zend_Controller_Action
                     $usuarioM->save($usuario);
 
                     // Enviando e-mail de confirmação para o usuário
-                    $mail = new Zend_Mail();
+                   /* $mail = new Zend_Mail();
 
                     $mail->setFrom('no-reply@revistaphp.com',"Revista PHP")
                          ->addTo($usuario->getEmail(),$usuario->getNome())
                          ->setBodyText("Seu cadastro foi realizado com sucesso!!!")
                          ->setSubject("Confirmação de cadastro na Revista PHP")
-                         ->send();
+                         ->send(); */
                     return $this->_helper->redirector('finish');
                 }
             }
