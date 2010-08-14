@@ -34,10 +34,14 @@
         <controllerFile controllerName="Achou">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="Auth">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Usuario"/>
         <formFile formName="Contato"/>
+        <formFile formName="Auth"/>
       </formsDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory>
@@ -141,6 +145,9 @@
           <viewControllerScriptsDirectory forControllerName="Achou">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Auth">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -181,6 +188,7 @@
           <testApplicationControllerFile filesystemName="ContatoControllerTest.php"/>
           <testApplicationControllerFile filesystemName="AchouControllerTest.php"/>
           <testApplicationControllerFile filesystemName="AchouControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="AuthControllerTest.php"/>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>
       <testLibraryDirectory>
