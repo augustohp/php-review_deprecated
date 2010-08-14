@@ -64,7 +64,29 @@
     </div> <!-- end of content -->
 
     <div id="templatemo_sidebar">
-<p>Temos <?php echo $this->totalUsuarios ?> usuários cadastrados.</p>
+        <div class="estatisticas">
+           <p><b>Temos <?php echo $this->totalUsuarios ?> usuários cadastrados.</b></p>
+           <a href="http://revistaphp.wordpress.com/" target="_blank"><img src="/images/wordpress.png" alt="Wordpress" /></a>
+           <a href="http://twitter.com/phpreview" target="_blank"><img src="/images/twitter.png" alt="Twitter" /></a>
+        </div>
+        <div id="testimonial_newsletter" style="display:none">
+            <div id="testimonial">
+                <h2>Busca</h2>
+                <?php // echo $this->Busca; ?>
+                <form action="<?= $this->url(array('controller'=>'buscar','action'=>'index'),'default',true) ?>" method="post">
+                	<input type="text" id="buscar_item" />
+                    <input type="submit" name="submit" value="Buscar" id="busca_subscribe" />
+                </form>
+            </div>
+            <div id="newsletter">
+            	<h2>Newsletter</h2>
+                <?php // echo $this->Newsletter; ?>
+                <form action="<?= $this->url(array('controller'=>'index','action'=>'newsletter'),'default',true) ?>" method="post">
+                	<input type="text" id="newsletter_email" />
+                    <input type="submit" name="submit" value="Inscrever" id="newsletter_subscribe" />
+                </form>
+            </div>
+    	</div>
         <?php
         if (is_array($this->noticias) && count($this->noticias) != 0){
         echo '<h2>Últimas <span>Notícias</span></h2>';
@@ -91,26 +113,6 @@ new TWTR.Widget({version: 2,type: 'profile',rpp: 4,interval: 6000,width: 250,hei
   }
 }).render().setUser('phpreview').start();
 </script>
-<?php /*
-        <div id="testimonial_newsletter">
-            <div id="testimonial">
-                <h2>Busca</h2>
-                <?php // echo $this->Busca; ?>
-                <form action="<?= $this->url(array('controller'=>'buscar','action'=>'index'),'default',true) ?>" method="post">
-                	<input type="text" id="buscar_item" />
-                    <input type="submit" name="submit" value="Buscar" id="busca_subscribe" />
-                </form>
-            </div>
-            <div id="newsletter">
-            	<h2>Newsletter</h2>
-                <?php // echo $this->Newsletter; ?>
-                <form action="<?= $this->url(array('controller'=>'index','action'=>'newsletter'),'default',true) ?>" method="post">
-                	<input type="text" id="newsletter_email" />
-                    <input type="submit" name="submit" value="Inscrever" id="newsletter_subscribe" />
-                </form>
-            </div>
-    	</div>
-*/ ?>
     </div> <!-- end of slider -->
 
     <div class="cleaner_h30"></div>

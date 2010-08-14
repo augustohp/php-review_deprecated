@@ -451,6 +451,15 @@ ul li a { font-weight: normal; text-decoration: none; }
 }
 /* end of testimonial */
 
+/* Quantos somos */
+.estatisticas{
+    width: 260px;
+    height: 87px;
+    margin-bottom: 20px;
+    /* background: url(/images/latest_projects.png) no-repeat; */
+}
+/* end of Quantos Somos */
+
 /* footer */
 
 #templatemo_footer_wrapper {
