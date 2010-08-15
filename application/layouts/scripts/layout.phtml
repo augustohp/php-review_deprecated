@@ -9,7 +9,17 @@
 <script type="text/javascript" src="/javascript/jquery.js"></script>
 <script type="text/javascript" src="/javascript/jquery.masked.js"></script>
 <script type="text/javascript" src="/javascript/phpreview.js"></script>
+<script type="text/javascript" src="/javascript/cycle.js"></script>
 <script type="text/javascript" src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script type="text/javascript">
+    $().ready(function(){
+        $('.project_image').cycle({
+            fx: fade,
+            timeout: 3000
+        }
+    )
+    })
+</script>
 </head>
 <body>
 <div id="templatemo_header_wrapper">
@@ -117,35 +127,32 @@ new TWTR.Widget({version: 2,type: 'profile',rpp: 4,interval: 6000,width: 250,hei
 
     <div class="cleaner_h30"></div>
 
-<?php /*    <div id="latest_projects">
+    <div id="latest_projects">
 
 	<div id="latest_project_text">
-            <h2>Latest Projects</h2>
-            <p>	Sedut perspiciatis unde omnis iste natus error sit volup tatem accus antium dolorem que lauda ntiumAt vero eos et accusamus et iusto odio.</p>
+            <h2>Parceiros</h2>
+            <p>	Aqui estão as empresas e sites que são parceiras da revista PHP Review e que apoiaram a revista desde sua concepção.</p>
         </div>
 
-        <div class="project_image_box margin_r15">
+        <a href="http://www.novatec.com.br/?idA=236" ><div class="project_image_box margin_r15">
             <div class="project_image"><span></span>
-            	<img src="images/templatemo_image_07.png" alt="image 1" />
+            	<img src="images/novatec.png" alt="Editora Novatec" />
             </div>
-            <h5><a href="#">sed ut perspiciatis.</a></h5>
-	  </div>
+        </div></a>
 
-	<div class="project_image_box margin_r15">
+	<a href="http://www.digital3i.com" ><div class="project_image_box margin_r15">
             <div class="project_image"><span></span>
-            	<img src="images/templatemo_image_08.png" alt="image 2" />
+            	<img src="images/digital3i.png" alt="Digital3i" />
             </div>
-        	<h5><a href="#">emque laudantium</a></h5>
-	  </div>
+	  </div></a>
 
-	<div class="project_image_box margin_r15">
+	<a href="http://www.dnadigital.com.br" ><div class="project_image_box margin_r15">
             <div class="project_image"><span></span>
-            	<img src="images/templatemo_image_09.png" alt="image 3" />
+                <img src="images/dnadigital.png" alt="Dna Digital" />
             </div>
-        <h5><a href="#">eaque ipsa quae</a></h5>
-	  </div>
+	  </div></a>
 
-      <div class="project_image_box">
+      <div class="project_image_box" style="display:none">
 	<div class="project_image"><span></span>
             	<img src="images/templatemo_image_10.png" alt="image 4" />
             </div>
@@ -153,7 +160,6 @@ new TWTR.Widget({version: 2,type: 'profile',rpp: 4,interval: 6000,width: 250,hei
 	  </div>
 
     </div>
-*/ ?>
 	<div  class="cleaner"></div>
 </div> <!-- end of content wrapper -->
 
