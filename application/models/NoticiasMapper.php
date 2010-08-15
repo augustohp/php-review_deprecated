@@ -36,7 +36,8 @@ protected $_dbTable;
            'dt_alteracao' => date('Y-m-d H:i:s'),
            'dt_limite' => $noticia->getDataLimite(),
            'in_home' => $noticia->getHome(),
-           'id_usuario' => $noticia->usuario->getid()
+           'id_usuario' => $noticia->usuario->getid(),
+           'url_imagem' => $noticia->getImagem()
        );
 
        if(null === ($id = $noticia->getId())){

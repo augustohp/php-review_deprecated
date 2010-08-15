@@ -13,6 +13,7 @@ class Application_Model_Noticias
     protected $_pagina_principal;
     protected $_usuario;
     protected $_resumo;
+    protected $_imagem;
 
 
     public function __contruct(array $opcoes = null){
@@ -96,7 +97,8 @@ class Application_Model_Noticias
             'dataLimite' => $noticia->dt_limite,
             'entrada' => $noticia->in_home,
             'usuario' => $noticia->id_usuario,
-            'resumo' => $noticia->ds_resumo
+            'resumo' => $noticia->ds_resumo,
+            'imagem' => $noticia->url_imagem
         );
 
         $this->setOptions($param);
@@ -239,6 +241,15 @@ class Application_Model_Noticias
 
     public function getResumo(){
         return $this->_resumo;
+    }
+
+    public function getImagem(){
+        return $this->_imagem;
+    }
+
+    public function setImagem($url){
+        $this->_imagem = $url;
+        return $this;
     }
     
 
