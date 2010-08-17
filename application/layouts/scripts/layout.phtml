@@ -109,20 +109,24 @@
         </div>
         <?php } }?>
 <script type="text/javascript">
-new TWTR.Widget({version: 2,type: 'profile',rpp: 4,interval: 6000,width: 250,height: 300,
+new TWTR.Widget({
+  version: 2, type: 'profile', rpp: 5,
+  interval: 6000, width: 250, height: 250,
   theme: {
     shell: {
-      background: '#77acbd', color: '#ffffff'
+      background: '#80acbd', color: '#ffffff'
     },
     tweets: {
-      background: '#00752f', color: '#ffffff',links: '#6de9fc'
+      background: '#ffffff', color: '#000000', links: '#228cb3'
     }
   },
   features: {
-    scrollbar: false,loop: false,live: false,hashtags: true,timestamp: true,avatars: false,behavior: 'all'
+    scrollbar: false, loop: false, live: true, hashtags: true, timestamp: true,
+    avatars: false, behavior: 'all'
   }
-}).render().setUser('phpreview').start();
+}).render().setUser('@phpreview').start();
 </script>
+
     </div> <!-- end of slider -->
 
     <div class="cleaner_h30"></div>

@@ -13,7 +13,7 @@ $noticia = $this->capaNoticias[0]; ?>
 <?php $noticia = $this->capaNoticias[1]; ?>
         <h2><?= $noticia->getTitulo() ?></h2>
         <?php
-        if ($noticia->getImagem() != ''){ ?><img src="<?= $noticia->getImagem() ?>" alt="" align="left" width="249" height="105" ><?php } ?>
+        if ($noticia->getImagem() != ''){ ?><div class="imagem_materia"><img src="<?= $noticia->getImagem() ?>" alt="" align="left" width="249" height="105" ></div><?php } ?>
         <p>Criada por <!-- <a href="<?php // echo $this->url(array('controller'=>'usuario','action'=>'view','id' => $noticia->usuario->getId())) ?>"> --><?php echo $noticia->usuario->getNome() ?><!-- </a> --> no dia <?= $noticia->getDataPublicacao('d/m/Y') ?> </p>
         <p><?= $noticia->getResumo() ?></p>
         <div class="readmore"><a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId())) ?>">leia mais</a></div>
@@ -26,7 +26,7 @@ $noticia = $this->capaNoticias[0]; ?>
 
   if (is_array($vetor)){
       foreach($vetor as $id => $noticia){ ?>
-         <div class="col_w265 <?php echo ($id%2==0?'float_r':'float_l') ?>">
+         <div class="col_w265 <?php echo ($id%2==0?'float_l':'float_r') ?>">
             <h3><?= $noticia->getTitulo() ?></h3>
             <?php  if ($noticia->getImagem() != ''){ ?><div class="two_col_image">
                 <a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId())) ?>">

@@ -249,8 +249,9 @@ ul li a { font-weight: normal; text-decoration: none; }
 }
 
 #templatemo_sidebar {
-	float: right;
-	width: 320px;
+	float: left;
+	width: 270px;
+        margin-left: 40px;
 }
 
 .col_w265 {
@@ -284,8 +285,8 @@ ul li a { font-weight: normal; text-decoration: none; }
 .newsbox .news_image {
 	float: left;
 	position: relative;
-	width: 83px;
-	height: 53px;
+	width: 60px;
+	height: 50px;
 	padding: 3px;
 }
 
@@ -293,18 +294,18 @@ ul li a { font-weight: normal; text-decoration: none; }
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 89px;
-	height: 59px;
-        font-size: 15pt;
+	width: 60px;
+	height: 50px;
+        font-size: 12pt;
         font-weight: bold;
         text-align: center;
 	/* background: url(/images/news_image_frame.png) no-repeat; */
 }
 
 .newsbox p {
-	float: right;
-	width: 190px;
-	margin: 0;
+	float: left;
+	width: 150px;
+	margin-left: 20px;
 	padding: 0;
 }
 
@@ -456,6 +457,11 @@ ul li a { font-weight: normal; text-decoration: none; }
     width: 260px;
     height: 87px;
     margin-bottom: 20px;
+    border: #90bccd 1px solid;
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #000000;
     /* background: url(/images/latest_projects.png) no-repeat; */
 }
 /* end of Quantos Somos */
