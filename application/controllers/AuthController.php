@@ -6,6 +6,7 @@ class AuthController extends Zend_Controller_Action
     public function init()
     {
         /* Initialize action controller here */
+        $this->_helper->acl->allow(null);
     }
 
     public function loginAction()
@@ -17,6 +18,10 @@ class AuthController extends Zend_Controller_Action
 
         if ($this->getRequest()->isPost()){
             if ($formLogin->isValid($this->getRequest()->getPost())){
+
+                $usuario = new Application_Model_UsuarioMapper();
+                $db = $usuario->getDbTable()->getAdapter();
+
                 $adapter = new Zend_Auth_Adapter_DbTable($db,'usuario','ds_email','ds_senha',"concat('BASH!',md5(?))");
 
                 $adapter->setIdentity($formLogin->getValue('login'));
@@ -26,8 +31,8 @@ class AuthController extends Zend_Controller_Action
 
                 if ($autenticado->isValid()){
                     $this->_helper->FlashMessenger('Login realizado com sucesso!');
-                    $this->redirect('/');
-                    return;
+                    $this->_redirect('/');
+                   // return;
                 }
             }
         }
