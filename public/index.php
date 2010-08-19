@@ -22,5 +22,19 @@ $application = new Zend_Application(
     APPLICATION_ENV,
     APPLICATION_PATH . '/configs/application.ini'
 );
+
+# Aplicando o controle de acesso.
+require_once "Revista/Acl.php";
+$acl = new Revista_Acl();
+$acl->gravaPapeis()->gravaRecursos()->Permissoes();
+
+ require_once 'Zend/Controller/Front.php';
+ require_once 'Zend/Controller/Plugin/Acl.php';
+ $front = Zend_Controller_Front::getInstance();
+ $front->registerPlugin(new Zend_Controller_Plugin_Acl($acl,'visitante'));
+
+require_once 'Zend/Session/Namespace.php';
+$myApp = new Zend_Session_Namespace('myApplication');
+
 $application->bootstrap()
             ->run();
