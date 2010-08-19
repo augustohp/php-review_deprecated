@@ -14,7 +14,9 @@
           <actionMethod actionName="apoio"/>
           <actionMethod actionName="nossaEquipe"/>
         </controllerFile>
-        <controllerFile controllerName="Error"/>
+        <controllerFile controllerName="Error">
+          <actionMethod actionName="denied"/>
+        </controllerFile>
         <controllerFile controllerName="Usuario">
           <actionMethod actionName="index"/>
           <actionMethod actionName="novo"/>
@@ -26,6 +28,7 @@
         </controllerFile>
         <controllerFile controllerName="Edicoes">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="download"/>
         </controllerFile>
         <controllerFile controllerName="Contato">
           <actionMethod actionName="index"/>
@@ -151,6 +154,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Auth">
             <viewScriptFile forActionName="logout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Error">
+            <viewScriptFile forActionName="denied"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Edicoes">
+            <viewScriptFile forActionName="download"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
