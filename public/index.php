@@ -29,9 +29,9 @@ $acl = new Revista_Acl();
 $acl->gravaPapeis()->gravaRecursos()->Permissoes();
 
  require_once 'Zend/Controller/Front.php';
- require_once 'Zend/Controller/Plugin/Acl.php';
+ require_once 'Revista/Plugin/Acl.php';
  $front = Zend_Controller_Front::getInstance();
- $front->registerPlugin(new Zend_Controller_Plugin_Acl($acl,'visitante'));
+ $front->registerPlugin(new Revista_Plugin_Acl($acl,'visitante'));
 
 require_once 'Zend/Session/Namespace.php';
 $myApp = new Zend_Session_Namespace('myApplication');
