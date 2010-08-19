@@ -14,6 +14,9 @@ class IndexController extends Zend_Controller_Action
         $usuario = new Application_Model_UsuarioMapper();
         $this->view->totalUsuarios = $usuario->getQuantidade();
 
+        // configurando as permissões de acesso.
+        $acl = new Zend_Acl();
+
     }
 
     public function indexAction()
