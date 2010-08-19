@@ -290,7 +290,7 @@ class Application_Model_Usuario
     public function getGrupo(){
         // TODO: retornar neste método uma instancia da classe grupo.
 
-        return $this->_grupo;
+        return 'usuario';//$this->_grupo;
     }
 
     public function setSenha($senha){

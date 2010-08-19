@@ -6,8 +6,8 @@ class EdicoesController extends Zend_Controller_Action
     public function init()
     {
         /* Initialize action controller here */
-        $usuario = new Application_Model_UsuarioMapper();
-        $this->view->totalUsuarios = $usuario->getQuantidade();
+                $usuario = new Application_Model_UsuarioMapper();
+                $this->view->totalUsuarios = $usuario->getQuantidade();
     }
 
     public function indexAction()
@@ -15,6 +15,13 @@ class EdicoesController extends Zend_Controller_Action
         // action body
     }
 
+    public function downloadAction()
+    {
+        // action body
+    }
+
 
 }
+
+
 

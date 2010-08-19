@@ -23,18 +23,31 @@ $application = new Zend_Application(
     APPLICATION_PATH . '/configs/application.ini'
 );
 
-# Aplicando o controle de acesso.
+// --> Instanciando a classe de Sessão.
+require_once 'Zend/Session/Namespace.php';
+$myApp = new Zend_Session_Namespace('PHPReview');
+
+// --> Caso não possua uma regra cadastrada, o mesmo é cadastrado como visitante.
+if (!isset($myApp->currentRole)){
+    $myApp->currentRole = 'visitante';
+}
+
+// --> Aplicando o controle de acesso
 require_once "Revista/Acl.php";
 $acl = new Revista_Acl();
 $acl->gravaPapeis()->gravaRecursos()->Permissoes();
 
- require_once 'Zend/Controller/Front.php';
- require_once 'Revista/Plugin/Acl.php';
- $front = Zend_Controller_Front::getInstance();
- $front->registerPlugin(new Revista_Plugin_Acl($acl,'visitante'));
+// --> Aplicando as regras para a validação do acesso.
+require_once 'Zend/Controller/Front.php';
+require_once 'Revista/Plugin/Acl.php';
 
-require_once 'Zend/Session/Namespace.php';
-$myApp = new Zend_Session_Namespace('myApplication');
+$aclPlugin = new Revista_Plugin_Acl($acl,$myApp->currentRole);
+$aclPlugin->setErrorPage('denied', 'error', 'default');
 
+// --> Instalando o plugin de acesso.
+$front = Zend_Controller_Front::getInstance();
+$front->registerPlugin($aclPlugin);
+
+// Iniciando o programa.
 $application->bootstrap()
             ->run();

@@ -3,10 +3,13 @@
 class AuthController extends Zend_Controller_Action
 {
 
+    protected $_application;
+
     public function init()
     {
         /* Initialize action controller here */
-                //$this->_helper->acl->allow(null);
+        //$this->_helper->acl->allow(null);
+        $this->_application = new Zend_Session_Namespace('PHPReview');
     }
 
     public function loginAction()
@@ -33,9 +36,12 @@ class AuthController extends Zend_Controller_Action
         
                         if ($autenticado->isValid()){
                             $usuario = $adapter->getResultRowObject();
-                            $dados = array('id'=>$usuario->id_usuario,'nome'=>$usuario->nm_usuario);
-                            $auth->getStorage()->write($dados);
+                            $this->_application->currentRole = 'usuario';
+                            $this->_application->id = $usuario->id_usuario;
+                            $this->_application->nome = $usuario->nm_usuario;
+                            $auth->getStorage()->write($this->_application);
                             $this->_helper->FlashMessenger('Login realizado com sucesso!');
+
                             $this->_redirect('/');
                            // return;
                         }
@@ -50,7 +56,7 @@ class AuthController extends Zend_Controller_Action
         // action body
         $auth = Zend_Auth::getInstance();
         $auth->clearIdentity();
-        Zend_Session::destroy();
+        $this->_application->currentRole = 'visitante';
         $this->_redirect('/');
 
     }

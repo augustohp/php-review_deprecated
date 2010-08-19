@@ -18,7 +18,7 @@
              $logout = $this->view->url(array('controller'=>'auth','action'=>'logout'));
              $user = $auth->getIdentity();
              $usuario = new Application_Model_Usuario();
-             $usuario->setId($user['id']);
+             $usuario->setId($user->id);
 
              $login = $usuario->getNome();
 
