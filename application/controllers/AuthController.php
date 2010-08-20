@@ -44,6 +44,8 @@ class AuthController extends Zend_Controller_Action
 
                             $this->_redirect('/');
                            // return;
+                        }else{
+                            $this->view->erroMessage = "Usuário ou Senha inválido. Tente novamente.";
                         }
                     }
                 }

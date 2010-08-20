@@ -464,6 +464,56 @@ ul li a { font-weight: normal; text-decoration: none; }
     color: #000000;
     /* background: url(/images/latest_projects.png) no-repeat; */
 }
+
+.login{
+    background-color: #80acbd;
+    border: 1px solid #185892;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 15px;
+    color: #ffffff;
+    width: 260px;
+}
+
+.login a{
+    color: yellow;
+    text-decoration: none;
+}
+.login a:visited{
+    color: yellow;
+    text-decoration: none;
+}
+
+.login a:hover{
+    text-decoration: underline;
+}
+
+.autenticador{
+    width: 90%;
+    color: #448099;
+    height: 150px;
+}
+
+.form{
+    padding : 25px 5px 30px 10px;
+}
+
+.texto{
+    padding : 25px 5px 30px 10px;
+    background-color: #f0f0ff
+}
+
+.erro{
+    border: 1px solid red;
+    background-color: #fff0f0;
+    color: red;
+    font-weight: bold;
+    padding : 15px 5px 15px 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+
 /* end of Quantos Somos */
 
 /* footer */

@@ -22,11 +22,15 @@
 
              $login = $usuario->getNome();
 
-             $string = "Bem vindo, ".$login." | <a href='$logout'>Log out</a>";
+             $string = "<p>Bem vindo, ".$login.".</p>
+             <a href='$logout' >Desconectar</a>";
          }else{
              $login = $this->view->url(array('controller'=>'auth','action'=>'login'));
 
-             $string = "<a href='$login'>Log in</a>";
+             $formLogin = new Application_Form_Auth();
+             $formLogin->setAction('/auth/login');
+
+             echo $formLogin->__toString();
          }
          return $string;
      }

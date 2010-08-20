@@ -1,4 +1,23 @@
-<?php
-   $this->loginForm->setAction($this->url());
-   echo $this->loginForm;
-?>
+<h2>Acesso Restrito</h2>
+
+<?php if (isset($this->erroMessage)){ ?>
+<div class="erro">
+    <?php echo $this->erroMessage; ?>
+</div>
+<?php } ?>
+<table class="autenticador">
+    <tr>
+        <td class="form" >
+         <?php
+            $this->loginForm->setAction($this->url());
+            echo $this->loginForm;
+         ?>
+        </td>
+        <td class="texto">
+            <h3>Ainda não é cadastrado?</h3>
+            <p>Quer ter acesso ao conteúdo das revistas e outras vantagens?</p>
+            <p>Registre-se. Não custa nada e você ainda ajuda a sua revista gratuita de PHP</p>
+
+        </td>
+    </tr>
+</table>

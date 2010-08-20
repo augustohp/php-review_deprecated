@@ -75,11 +75,16 @@
 
     <div id="templatemo_sidebar">
         <div class="estatisticas">
-           <?php echo $this->UsuarioLogado(); ?>
            <p><b>Temos <?php echo $this->totalUsuarios ?> usuários cadastrados.</b></p>
            <a href="http://revistaphp.wordpress.com/" target="_blank"><img src="/images/wordpress.png" alt="Wordpress" /></a>
            <a href="http://twitter.com/phpreview" target="_blank"><img src="/images/twitter.png" alt="Twitter" /></a>
         </div>
+        <?php if ($this->url() != '/auth/login'){ ?>
+        <div class="login">
+            <?php echo $this->UsuarioLogado(); ?>
+        </div>
+        <?php } ?>
+
         <div id="testimonial_newsletter" style="display:none">
             <div id="testimonial">
                 <h2>Busca</h2>
@@ -165,10 +170,6 @@ new TWTR.Widget({
           <a href="http://www.latinoware.org">
                <div class="project_image"><span></span>
             	<img src="/images/latinoware.png" alt="image 4" />
-            </div></a>
-          <a href="http://www.latinoware.org">
-               <div class="project_image"><span></span>
-            	<img src="images/latinoware.png" alt="image 4" />
             </div></a>
 	  </div>
 
