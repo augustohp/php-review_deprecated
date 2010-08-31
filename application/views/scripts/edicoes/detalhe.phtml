@@ -1,0 +1,15 @@
+<h2><?php echo $this->revista->getTitulo(); ?></h2>
+<div id='revista_detalhe'> 
+    <img src='/images/<?php echo $this->revista->getEdicao(); ?>.jpg' alt='<?php echo $this->revista->getTitulo(); ?>' class='capa' align='left' />
+
+     <?= $this->revista->getResumo() ?>
+ <a href='<?= $this->url(array('controller'=>'edicoes','action'=>'download','id'=>$this->revista->getId())); ?>'><img src='/images/download.png' align='center'/></a>
+</div>
+
+<h2>Dados da Revista</h2>
+     <table>
+       <tr><th>Edição:</th><td><?php echo $this->revista->getEdicao(); ?></td></tr>
+       <tr><th>Bimestre:</th><td><?php echo $this->revista->getPeriodo()." - ".$this->revista->getAnoPublicacao(); ?></td></tr>
+       <tr><th>Publicação:</th><td><?= $this->revista->getDataPublicacao() ?></td></tr>
+     </table>
+

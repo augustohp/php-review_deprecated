@@ -1,8 +1,19 @@
 <h2>Edições</h2>
 
-<p>Nossa primeira edição já está no forno e em breve estará disponível para você, com conteúdos exclusivos, reportagens,
-    entrevistas, tutoriais e muito mais.</p>
+<p>Abaixo, confira as edições já publicadas.</p>
 
-<p>Por enquanto, faça o seu cadastro para que possa fazer o download da primeira edição.</p>
+<p>Para realizar o download das edições é necessário fazer o seu cadastro. </p>
 
-<blockquote>Equipe da PHP Review</blockquote>
+<?php
+  if (is_array($this->revistas)){
+   foreach($this->revistas as $revista){ ?>
+     <table class='revista'>
+       <tr><td rowspan=4><img src='/images/<?php echo $revista->getEdicao(); ?>.mini.jpg' alt='<?php echo $revista->getTitulo(); ?>' /></td><td><h3><?php echo $revista->getTitulo(); ?></h3></td>
+       <tr><td>Edição: <?php echo $revista->getEdicao(); ?></td></tr>
+       <tr><td><?php echo $revista->getPeriodo()." - ".$revista->getAnoPublicacao(); ?></td></tr>
+       <tr><td align=center><div class='button'><a href='<?= $this->url(array('controller'=>'edicoes','action'=>'detalhe','id'=>$revista->getId())); ?>'>Mais detalhes</a></div></td></tr>
+     </table>
+<?php   
+    }
+  }
+?>

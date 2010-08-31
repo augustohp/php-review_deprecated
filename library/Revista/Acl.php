@@ -39,15 +39,16 @@
     public function Permissoes(){
         // Primeiro dando as negações para depois dar as permissões.
 
-        $this->deny('visitante','edicoes')
-             ->allow('visitante','edicoes',array('index','detalhes'))
-             ->allow('usuario','edicoes','download')
+        $this->allow('visitante','edicoes',array('index','detalhe'))
+             ->deny('visitante','edicoes','download')
+             ->allow('usuario','edicoes',array('download'))
              ->allow('visitante','index')
              ->allow('visitante','noticia')
              ->allow('visitante','contato')
              ->allow('visitante','auth')
              ->allow('visitante','usuario')
              ->allow('visitante','hotsite');
+
         return $this;
     }
 
