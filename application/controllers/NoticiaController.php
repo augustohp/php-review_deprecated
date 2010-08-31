@@ -31,8 +31,6 @@ class NoticiaController extends Zend_Controller_Action
         $noticia->setId($id);
         $this->view->noticia = $noticia;
 
-
-
     }
 
 

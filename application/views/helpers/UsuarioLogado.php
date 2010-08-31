@@ -30,7 +30,7 @@
              $formLogin = new Application_Form_Auth();
              $formLogin->setAction('/auth/login');
 
-             echo $formLogin->__toString();
+             $string = $formLogin->__toString();
          }
          return $string;
      }
