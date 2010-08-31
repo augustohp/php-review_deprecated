@@ -42,7 +42,7 @@ require_once 'Zend/Controller/Front.php';
 require_once 'Revista/Plugin/Acl.php';
 
 $aclPlugin = new Revista_Plugin_Acl($acl,$myApp->currentRole);
-$aclPlugin->setErrorPage('denied', 'error', 'default');
+$aclPlugin->setErrorPage('login', 'auth', 'default');
 
 // --> Instalando o plugin de acesso.
 $front = Zend_Controller_Front::getInstance();
