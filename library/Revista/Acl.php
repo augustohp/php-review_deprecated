@@ -26,10 +26,12 @@
     public function gravaRecursos(){
         $this->add(new Zend_Acl_Resource('contato'))
              ->add(new Zend_Acl_Resource('edicoes'))
+             ->add(new Zend_Acl_Resource('error'))
              ->add(new Zend_Acl_Resource('index'))
              ->add(new Zend_Acl_Resource('noticia'))
              ->add(new Zend_Acl_Resource('auth'))
-             ->add(new Zend_Acl_Resource('usuario'));
+             ->add(new Zend_Acl_Resource('usuario'))
+             ->add(new Zend_Acl_Resource('hotsite'));
 
         return $this;
     }
@@ -44,7 +46,8 @@
              ->allow('visitante','noticia')
              ->allow('visitante','contato')
              ->allow('visitante','auth')
-             ->allow('visitante','usuario');
+             ->allow('visitante','usuario')
+             ->allow('visitante','hotsite');
         return $this;
     }
 

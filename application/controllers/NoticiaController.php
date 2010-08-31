@@ -16,6 +16,7 @@ class NoticiaController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
+        $this->_redirect('/');
     }
 
     public function readAction()

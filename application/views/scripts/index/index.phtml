@@ -1,7 +1,7 @@
 <?php
 if (is_array($this->capaNoticias)){
 $noticia = $this->capaNoticias[0]; ?>
-<h2><?= $noticia->getTitulo() ?></h2>
+<h2><a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId())) ?>"><?= $noticia->getTitulo() ?></a></h2>
 <?php
         if ($noticia->getImagem() != ''){ ?><img src="<?= $noticia->getImagem() ?>" alt="" align="left" width="249" height="105" ><?php } ?>
       <p>Criada por <!-- <a href="<?php // echo $this->url(array('controller'=>'usuario','action'=>'view','id' => $noticia->usuario->getId())) ?>"> --><?php echo $noticia->usuario->getNome() ?><!-- </a> --> no dia <?= $noticia->getDataPublicacao('d/m/Y') ?> </p>
@@ -11,7 +11,7 @@ $noticia = $this->capaNoticias[0]; ?>
         <div class="cleaner_h40"></div>
 
 <?php $noticia = $this->capaNoticias[1]; ?>
-        <h2><?= $noticia->getTitulo() ?></h2>
+        <h2><a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId())) ?>"><?= $noticia->getTitulo() ?></a></h2>
         <?php
         if ($noticia->getImagem() != ''){ ?><div class="imagem_materia"><img src="<?= $noticia->getImagem() ?>" alt="" align="left" width="249" height="105" ></div><?php } ?>
         <p>Criada por <!-- <a href="<?php // echo $this->url(array('controller'=>'usuario','action'=>'view','id' => $noticia->usuario->getId())) ?>"> --><?php echo $noticia->usuario->getNome() ?><!-- </a> --> no dia <?= $noticia->getDataPublicacao('d/m/Y') ?> </p>
@@ -27,7 +27,7 @@ $noticia = $this->capaNoticias[0]; ?>
   if (is_array($vetor)){
       foreach($vetor as $id => $noticia){ ?>
          <div class="col_w265 <?php echo ($id%2==0?'float_l':'float_r') ?>">
-            <h3><?= $noticia->getTitulo() ?></h3>
+            <h3><a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId())) ?>"><?= $noticia->getTitulo() ?></a></h3>
             <?php  if ($noticia->getImagem() != ''){ ?><div class="two_col_image">
                 <a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId())) ?>">
                     <img src="<?= $noticia->getImagem() ?>" alt="image" width="249" height="105" /></a>
