@@ -61,7 +61,7 @@ protected $_dbTable;
    }
 
    public function fetchAll(array $where = null){
-       $resultado = $this->getDbTable()->fetchAll($where);
+       $resultado = $this->getDbTable()->fetchAll($where,'dt_publicacao desc');
        if ($resultado->count() == 0){
            return;
        }
