@@ -29,6 +29,7 @@
         <controllerFile controllerName="Edicoes">
           <actionMethod actionName="index"/>
           <actionMethod actionName="download"/>
+          <actionMethod actionName="detalhe"/>
         </controllerFile>
         <controllerFile controllerName="Contato">
           <actionMethod actionName="index"/>
@@ -40,6 +41,10 @@
         <controllerFile controllerName="Auth">
           <actionMethod actionName="index"/>
           <actionMethod actionName="logout"/>
+        </controllerFile>
+        <controllerFile controllerName="Hotsite">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="achou"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -55,6 +60,7 @@
           <dbTableFile dbTableName="Escolaridade"/>
           <dbTableFile dbTableName="FaixaSalarial"/>
           <dbTableFile dbTableName="Noticias"/>
+          <dbTableFile dbTableName="Publicacoes"/>
         </dbTableDirectory>
         <modelFile modelName="UsuarioMapper"/>
         <modelFile modelName="Usuario"/>
@@ -66,6 +72,8 @@
         <modelFile modelName="FaixaSalarialMapper"/>
         <modelFile modelName="NoticiasMapper"/>
         <modelFile modelName="Noticias"/>
+        <modelFile modelName="PublicacaoMapper"/>
+        <modelFile modelName="Publicacao"/>
       </modelsDirectory>
       <modulesDirectory>
         <moduleDirectory moduleName="admin">
@@ -161,6 +169,15 @@
           <viewControllerScriptsDirectory forControllerName="Edicoes">
             <viewScriptFile forActionName="download"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Hotsite">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Hotsite">
+            <viewScriptFile forActionName="achou"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Edicoes">
+            <viewScriptFile forActionName="detalhe"/>
+          </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
@@ -202,6 +219,7 @@
           <testApplicationControllerFile filesystemName="AchouControllerTest.php"/>
           <testApplicationControllerFile filesystemName="AchouControllerTest.php"/>
           <testApplicationControllerFile filesystemName="AuthControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="HotsiteControllerTest.php"/>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>
       <testLibraryDirectory>
