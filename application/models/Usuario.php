@@ -110,6 +110,7 @@ class Application_Model_Usuario
                 'comoConheceu'=> $usuario->ds_como_conheceu,
                 'dataCriacao' => $usuario->dt_criacao,
                 'dataAtualizacao'=> $usuario->dt_atualizacao,
+                'cargo' => $usuario->id_nivel_cargo,
                 'grupo'   => $usuario->id_grupo);
 
         $this->setOptions($itens);
@@ -269,7 +270,7 @@ class Application_Model_Usuario
     }
 
     public function getDataCriacao(){
-        return $this->_dt_criacao;
+        return (is_null($this->_dt_criacao)?date('Y-m-d H:i:s'):$this->_dt_criacao);
     }
 
     public function setDataAtualizacao($data){

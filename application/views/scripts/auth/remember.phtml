@@ -1,0 +1,14 @@
+<h2>Esqueceu sua senha?</h2>
+
+<p>Se você não lembra a sua senha nós estamos aqui para te ajudar.</p>
+<p>Envie o seu e-mail através do campo abaixo que lhe daremos as instruções para recuperar a sua senha</p>
+
+<?php if (isset($this->alerta)){
+    echo "<div class='erro'>{$this->alerta}</div>";
+}
+?>
+
+<?php
+    $this->formulario->setAction($this->url());
+    echo $this->formulario;
+ ?>

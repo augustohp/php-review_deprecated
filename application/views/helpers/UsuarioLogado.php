@@ -26,11 +26,13 @@
              <a href='$logout' >Desconectar</a>";
          }else{
              $login = $this->view->url(array('controller'=>'auth','action'=>'login'));
+             $esqueci_senha = $this->view->url(array('controller'=>'auth','action'=>'remember'));
 
              $formLogin = new Application_Form_Auth();
-             $formLogin->setAction('/auth/login');
+             $formLogin->setAction($login);
 
              $string = $formLogin->__toString();
+             $string .= "<a href='{$esqueci_senha}'>Esqueci minha senha</a>";
          }
          return $string;
      }
