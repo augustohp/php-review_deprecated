@@ -56,6 +56,7 @@
             <div class="button"><a href="<?php echo $this->url(array('controller'=>'edicoes','action'=>'detalhe','id'=>2)); ?>">Leia mais...</a></div>
         </div>
         <div id="feature_right">
+
         	<div id="feature_image"><span></span>
             	<img src="/images/templatemo_image_01.png" alt="image" />
             </div>
@@ -84,7 +85,25 @@
             <?php echo $this->UsuarioLogado(); ?>
         </div>
         <?php } ?>
-
+<script type="text/javascript">
+new TWTR.Widget({
+  version: 2, type: 'profile', rpp: 5,
+  interval: 6000, width: 250, height: 250,
+  theme: {
+    shell: {
+      background: '#80acbd', color: '#ffffff'
+    },
+    tweets: {
+      background: '#ffffff', color: '#000000', links: '#228cb3'
+    }
+  },
+  features: {
+    scrollbar: false, loop: false, live: true, hashtags: true, timestamp: true,
+    avatars: false, behavior: 'all'
+  }
+}).render().setUser('@phpreview').start();
+</script>
+<br>
         <div id="testimonial_newsletter" style="display:none">
             <div id="testimonial">
                 <h2>Busca</h2>
@@ -114,24 +133,6 @@
             <div class="cleaner"></div><div class="readmore"><a href="<?= $this->url(array('controller'=>'noticia','action'=>'read','id'=>$noticia->getId()),'default',true)?>">leia mais</a></div>
         </div>
         <?php } }?>
-<script type="text/javascript">
-new TWTR.Widget({
-  version: 2, type: 'profile', rpp: 5,
-  interval: 6000, width: 250, height: 250,
-  theme: {
-    shell: {
-      background: '#80acbd', color: '#ffffff'
-    },
-    tweets: {
-      background: '#ffffff', color: '#000000', links: '#228cb3'
-    }
-  },
-  features: {
-    scrollbar: false, loop: false, live: true, hashtags: true, timestamp: true,
-    avatars: false, behavior: 'all'
-  }
-}).render().setUser('@phpreview').start();
-</script>
 
     </div> <!-- end of slider -->
 
