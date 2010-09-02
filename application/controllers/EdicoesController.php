@@ -25,10 +25,15 @@ class EdicoesController extends Zend_Controller_Action
 
     public function downloadAction()
     {
-        $this->_helper->layout->disableLayout();
-        // action body
         $id = $this->getRequest()->getParam('id');
 
+        // buscando usuário e inserindo os valores dentro dele.
+        // TODO Por enquanto está gravando em arquivo mas depois gravará em banco de dados.
+        $myApp = new Zend_Session_Namespace('PHPReview');
+        error_log('insert into usuario_publicacao values (0,'.$myApp->id.','.$id.',0)',3,'/home/phprevie/temporario/downloads.log');
+
+        $this->_helper->layout->disableLayout();
+        // action body
         $edicao = new Application_Model_Publicacao();
         $edicao->setId($id);
   

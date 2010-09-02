@@ -153,12 +153,12 @@ class Application_Form_Usuario extends Zend_Form
             'captcha' => array(
                 'captcha'=> 'Image',
                 'expiration' => 600,
-                'font' => "/home/phprevie/Garuda.ttf",
+                'font' => APPLICATION_PATH."/../Garuda.ttf",
                 'fontSize' => '33pt',
 		'wordLen' => 6,
                 'height' => 100,
                 'width'  => 300,
-                'imageDir' => '/home/phprevie/public_html/images/captcha/'
+                'imgDir' => APPLICATION_PATH.'/../public/images/captcha/'
             )
         ));
 

@@ -47,6 +47,7 @@
              ->allow('visitante','contato')
              ->allow('visitante','auth')
              ->allow('visitante','usuario')
+             ->allow('visitante','error')
              ->allow('visitante','hotsite');
 
         return $this;
